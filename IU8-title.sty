@@ -1,0 +1,155 @@
+\newcommand\theme[1]{
+	\def\titleTheme{#1}
+}
+\newcommand\group[1]{
+	\def\groupNumber{#1}
+}
+\newcommand\profile[1]{
+	\def\profileNumber{#1}
+}
+\newcommand\student[1]{
+	\def\studentName{#1}
+}
+\newcommand\studentFullName[1]{
+	\def\studentFullNameForTitle{#1}
+}
+\newcommand\supervisor[1]{
+	\def\supervisorName{#1}
+}
+\newcommand\researchTheme[1]{
+	\def\researchThemeName{#1}
+}
+\newcommand\speciality[1]{
+	\def\specialityName{#1}
+}
+\newcommand\specialization[1]{
+	\def\specializationName{#1}
+}
+\newcommand\supervisorDegree[1]{
+    \def\degree{#1}
+}
+
+\newcommand\courseworkTitle{
+    \thispagestyle{empty}
+    \noindent\begin{minipage}{0.05\textwidth}
+        \includegraphics[scale=0.3]{inc/bmstu}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.85\textwidth}\raggedleft
+        \begin{center}
+            \fontsize{10pt}{0.3\baselineskip}\selectfont \textbf{Министерство науки и высшего образования Российской Федерации \\ Федеральное государственное бюджетное образовательное учреждение \\ высшего образования \\ <<Московский государственный технический университет \\ имени Н. Э. Баумана \\ (национальный исследовательский университет)>> \\ (МГТУ им. Н. Э. Баумана)}
+        \end{center}
+    \end{minipage}
+    \begin{center}
+        \fontsize{12pt}{0.1\baselineskip}\selectfont
+        \noindent\makebox[\linewidth]{\rule{\textwidth}{2pt}} \makebox[\linewidth]{\rule{\textwidth}{1pt}}
+    \end{center}
+    \noindent
+    \begin{tabularx}{\textwidth}{lX}
+        {\fontsize{12pt}{12pt}\selectfont ФАКУЛЬТЕТ}
+                                                   &
+        {\fontsize{12pt}{12pt}\selectfont \quad <<Информатика и системы управления>> (ИУ)} \\
+        \hhline{~~}
+        {\fontsize{12pt}{12pt}\selectfont КАФЕДРА} &
+        {\fontsize{12pt}{12pt}\selectfont \quad <<Информационная безопасность>> (ИУ8)}     \\
+        \hhline{~~}
+    \end{tabularx}
+    \vspace{1.5cm}
+    
+    \noindent
+    {\centering\rmfamily\bfseries\fontsize{20pt}{20pt}\selectfont РАСЧЕТНО-ПОЯСНИТЕЛЬНАЯ ЗАПИСКА \\ \bigskip
+    \textit{К КУРСОВОЙ РАБОТЕ} \\ \bigskip
+    НА ТЕМУ: \\ \null}
+    
+    \vfill
+    
+    \noindent
+    \begin{minipage}{\linewidth}
+        \centering\internallinenumbers\rmfamily\bfseries\fontsize{20pt}{20pt}\selectfont
+        \renewcommand{\makeLineNumber}{\rule[-0.7ex]{\textwidth}{0.4pt}\hss}%
+        \titleTheme
+    \end{minipage}
+    
+    \vfill
+    
+    \noindent
+    {\rmfamily\fontsize{14pt}{14pt}\selectfont Студент} \hfill $\underset{\text{(Группа, личное дело)}}{\overset{\text{}}{\text{\uline{\groupNumber, л.д. \profileNumber}}}}$ \hfill $\underset{\text{(И. О. Фамилия)}}{\overset{\text{}}{\text{\uline{\parbox{4cm}{\centering\rmfamily\fontsize{12pt}{12pt}\selectfont \studentName}\rule[35pt]{0pt}{0pt}}}}}$ 
+    
+    \noindent
+    {\rmfamily\fontsize{14pt}{14pt}\selectfont Руководитель курсовой работы} \hfill $\underset{\text{(И. О. Фамилия)}}{\overset{\text{}}{\text{\uline{\parbox{4cm}{\centering\rmfamily\fontsize{12pt}{12pt}\selectfont \supervisorName}\rule[35pt]{0pt}{0pt}}}}}$ 
+    
+    \noindentПриёмная комиссия \hfill $\underset{\text{(Оценка, подпись, дата)}}{\overset{\text{}}{\text{\uline{\parbox{4cm}{\centering\rmfamily\fontsize{12pt}{12pt}\selectfont ~}\rule[35pt]{0pt}{0pt}}}}}$ \qquad $\underset{\text{(И.О. Фамилия)}}{\overset{\text{}}{\text{\uline{\parbox{4cm}{\centering\rmfamily\fontsize{12pt}{12pt}\selectfont ~}\rule[35pt]{0pt}{0pt}}}}}$
+    
+    
+    \null\hfill $\underset{\text{(Оценка, подпись, дата)}}{\overset{\text{}}{\text{\uline{\parbox{4cm}{\centering\rmfamily\fontsize{12pt}{12pt}\selectfont ~}\rule[35pt]{0pt}{0pt}}}}}$ \qquad $\underset{\text{(И.О. Фамилия)}}{\overset{\text{}}{\text{\uline{\parbox{4cm}{\centering\rmfamily\fontsize{12pt}{12pt}\selectfont ~}\rule[35pt]{0pt}{0pt}}}}}$
+    
+    \null\hfill $\underset{\text{(Оценка, подпись, дата)}}{\overset{\text{}}{\text{\uline{\parbox{4cm}{\centering\rmfamily\fontsize{12pt}{12pt}\selectfont ~}\rule[35pt]{0pt}{0pt}}}}}$ \qquad $\underset{\text{(И.О. Фамилия)}}{\overset{\text{}}{\text{\uline{\parbox{4cm}{\centering\rmfamily\fontsize{12pt}{12pt}\selectfont ~}\rule[35pt]{0pt}{0pt}}}}}$
+    
+    \vfill
+    
+    {\centering\rmfamily\itshape\fontsize{14pt}{14pt}\selectfont Москва, \the\year~г. \par}
+
+    \clearpage
+  }
+
+
+
+\newcommand\researchTitle{
+    \thispagestyle{empty}
+    \noindent\begin{minipage}{0.05\textwidth}
+        \includegraphics[scale=0.3]{inc/bmstu}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.85\textwidth}\raggedleft
+        \begin{center}
+            \fontsize{10pt}{0.3\baselineskip}\selectfont \textbf{Министерство науки и высшего образования Российской Федерации \\ Федеральное государственное бюджетное образовательное учреждение \\ высшего образования \\ <<Московский государственный технический университет \\ имени Н. Э. Баумана \\ (национальный исследовательский университет)>> \\ (МГТУ им. Н. Э. Баумана)}
+        \end{center}
+    \end{minipage}
+    \begin{center}
+        \fontsize{12pt}{0.1\baselineskip}\selectfont
+        \noindent\makebox[\linewidth]{\rule{\textwidth}{2pt}} \makebox[\linewidth]{\rule{\textwidth}{1pt}}
+    \end{center}
+    \noindent
+    \begin{tabularx}{\textwidth}{lX}
+        {\fontsize{12pt}{12pt}\selectfont ФАКУЛЬТЕТ}
+                                                   &
+        {\fontsize{12pt}{12pt}\selectfont \quad <<Информатика и системы управления>> (ИУ)} \\
+        \hhline{~~}
+        {\fontsize{12pt}{12pt}\selectfont КАФЕДРА} &
+        {\fontsize{12pt}{12pt}\selectfont \quad <<Информационная безопасность>> (ИУ8)}     \\
+        \hhline{~~}
+    \end{tabularx}
+    \vspace{1.5cm}
+    
+    \noindent
+    {\centering\rmfamily\bfseries\fontsize{20pt}{20pt}\selectfont Отчёт \\ по научно-исследовательской работе студента \null}
+    
+    \vfill
+
+    \noindent
+    на тему \hfill \uline{\parbox{\linewidth-2cm}{\centering\rmfamily\fontsize{14pt}{14pt}\selectfont \titleTheme}\rule[35pt]{0pt}{0pt}}\\
+    
+    \noindent\parbox{3.6cm}{\rmfamily\fontsize{14pt}{14pt}\selectfont ФИО студента:} \studentFullNameForTitle
+
+    \noindent\parbox{3.6cm}{\rmfamily\fontsize{14pt}{14pt}\selectfont Группа:} \groupNumber
+
+    \noindent\parbox{3.6cm}{\rmfamily\fontsize{14pt}{14pt}\selectfont Специальность:} \specialityName
+
+    \noindent\parbox{3.6cm}{\rmfamily\fontsize{14pt}{14pt}\selectfont Специализация:} \specializationName
+
+    \noindent Научный руководитель НИРС: \degree
+    \vfill
+    \noindent Работа выполнена: \hfill $\underset{\text{(Дата)}}{\overset{\text{}}{\text{\uline{\parbox{3cm}{\centering\rmfamily\fontsize{14pt}{14pt}\selectfont ~}\rule[35pt]{0pt}{0pt}}}}}$ \qquad $\underset{\text{(Подпись)}}{\overset{\text{}}{\text{\uline{\parbox{3cm}{\centering\rmfamily\fontsize{14pt}{14pt}\selectfont ~}\rule[35pt]{0pt}{0pt}}}}}$ \qquad $\underset{\text{(И.О. Фамилия)}}{\overset{\text{}}{\text{\uline{\parbox{4cm}{\centering\rmfamily\fontsize{14pt}{14pt}\selectfont \studentName}\rule[35pt]{0pt}{0pt}}}}}$
+
+    \noindent Допуск к защите: \hfill $\underset{\text{(Дата)}}{\overset{\text{}}{\text{\uline{\parbox{3cm}{\centering\rmfamily\fontsize{14pt}{14pt}\selectfont ~}\rule[35pt]{0pt}{0pt}}}}}$ \qquad $\underset{\text{(Подпись)}}{\overset{\text{}}{\text{\uline{\parbox{3cm}{\centering\rmfamily\fontsize{14pt}{14pt}\selectfont ~}\rule[35pt]{0pt}{0pt}}}}}$ \qquad $\underset{\text{(И.О. Фамилия)}}{\overset{\text{}}{\text{\uline{\parbox{4cm}{\centering\rmfamily\fontsize{14pt}{14pt}\selectfont \supervisorName}\rule[35pt]{0pt}{0pt}}}}}$
+    \vfill
+    \noindent\parbox{5cm}{\rmfamily\fontsize{14pt}{14pt}\selectfont Дата защиты НИРС:} $\underset{\text{}}{\overset{\text{}}{\text{\uline{\parbox{5cm}{\centering\rmfamily\fontsize{14pt}{14pt}\selectfont ~}\rule[35pt]{0pt}{0pt}}}}}$ 
+
+    \noindent\parbox{5cm}{\rmfamily\fontsize{14pt}{14pt}\selectfont Результаты защиты:} $\underset{\text{}}{\overset{\text{}}{\text{\uline{\parbox{5cm}{\centering\rmfamily\fontsize{14pt}{14pt}\selectfont ~}\rule[35pt]{0pt}{0pt}}}}}$ 
+
+    \vfill
+    
+    {\centering\rmfamily\itshape\fontsize{14pt}{14pt}\selectfont Москва, \the\year~г. \par}
+
+    \clearpage
+  }

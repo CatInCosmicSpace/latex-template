@@ -1,0 +1,52 @@
+\documentclass[research]{IU8}
+
+\usepackage{blindtext}
+
+\theme{Создание отчёта по НИРС или курсовой}
+\group{ИУ8-999}
+\profile{10У101}
+\speciality{10.05.01 <<Компьютерная безопасность>>}
+\specialization{10.05.01\_01 <<Математические методы защиты информации>>}
+
+\student{И. И. Иванов}
+\studentFullName{Иванов Иван Иванович}
+\supervisor{П. П. Петров}
+\supervisorDegree{к.т.н., доцент Петров П. П.}
+
+\include{glossary}
+\begin{document}
+    \maketitle % Титульный лист
+
+    % \setcounter{page}{3} % Устанавливает счётчик страниц
+    \input{0-abstract} % Реферат
+
+    \tableofcontents % Содержание
+
+    \glossaries % Определения, сокращения и обозначения
+
+    \input{1-introduction} % Введение
+
+    \General % Признак начала основной части. Не удалять!
+
+    \input{2-00-titlepage}
+    \input{2-01-techtask}
+    \input{2-02-abstract}
+    \input{2-03-glossary}
+    \input{2-04-figures}
+    \input{2-05-citations}
+    \input{2-06-tables}
+    \input{2-07-enums}
+    \input{2-08-formulas}
+    \input{2-09-algorithms}
+    \input{2-10-math}
+    \input{2-11-listings}
+    
+    \input{3-conclusion}
+
+    \Bibliography{main} % Список использованных источников. Не удалять!
+
+    \appendix
+    \input{4-appendix-a}
+    \input{4-appendix-b}
+    \input{4-appendix-c}
+\end{document}
