@@ -316,9 +316,9 @@
     \setcounter{figure}{0}    
     \setcounter{table}{0}    
     \setcounter{equation}{0}    
-    \renewcommand\thefigure{\Asbuk{part}.\arabic{figure}} 
-    \renewcommand\thetable{\Asbuk{part}.\arabic{figure}} 
-    \renewcommand\theequation{\Asbuk{part}.\arabic{figure}} 
+    \renewcommand\thefigure{\Asbuk{apps}.\arabic{figure}} 
+    \renewcommand\thetable{\Asbuk{apps}.\arabic{figure}} 
+    \renewcommand\theequation{\Asbuk{apps}.\arabic{figure}} 
 }
 
 \renewcommand\@biblabel{}%
