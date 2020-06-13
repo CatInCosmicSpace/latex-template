@@ -175,11 +175,11 @@
 \renewcommand\p@enumiii{\theenumi(\theenumii)}
 \renewcommand\p@enumiv{\p@enumiii\theenumiii}
 
+\newcommand\labelitemfont{\normalfont}
 \renewcommand\labelitemi  {\labelitemfont \bfseries \textemdash}
 \renewcommand\labelitemii {\labelitemfont \bfseries \textemdash}
 \renewcommand\labelitemiii{\labelitemfont \bfseries \textemdash}
 \renewcommand\labelitemiv {\labelitemfont \bfseries \textemdash}
-% \renewcommand\labelitemfont{\normalfont}
 
 \RequirePackage{longtable}
 \RequirePackage{subcaption}
