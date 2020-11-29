@@ -1,6 +1,7 @@
 \documentclass[research]{IU8}
 
 \usepackage{blindtext}
+\usepackage{pdfpages}
 
 \theme{Создание отчёта по НИРС или курсовой}
 \group{ИУ8-999}
@@ -14,8 +15,10 @@
 \supervisorDegree{к.т.н., доцент Петров П. П.}
 
 \include{glossary}
+
 \begin{document}
     \maketitle % Титульный лист
+    \includepdf[pages=-]{extra/task} % Задание
 
     % \setcounter{page}{3} % Устанавливает счётчик страниц
     \input{0-abstract} % Реферат
