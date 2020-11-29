@@ -122,9 +122,9 @@
 }
  
 % === Подписи к рисункам и таблицам ===
-\RequirePackage[normal,nooneline]{caption}
+\RequirePackage[normal,normalsize,nooneline]{caption}
 \DeclareCaptionLabelSeparator*{emdash}{\space---\space}
-\captionsetup{labelsep=emdash,aboveskip=10pt,belowskip=0pt,position=bottom}
+\captionsetup{labelsep=emdash,aboveskip=10pt,belowskip=0pt,position=bottom,size=normalfont}
 \captionsetup[figure]{justification=centering}
 \captionsetup[table]{position=top,aboveskip=5pt,justification=justified}
 
@@ -175,7 +175,9 @@
 \renewcommand\p@enumiii{\theenumi(\theenumii)}
 \renewcommand\p@enumiv{\p@enumiii\theenumiii}
 
-\newcommand\labelitemfont{\normalfont}
+\@ifundefined{labelitemfont}{%
+    \newcommand\labelitemfont{\normalfont}
+}{}
 \renewcommand\labelitemi  {\labelitemfont \bfseries \textemdash}
 \renewcommand\labelitemii {\labelitemfont \bfseries \textemdash}
 \renewcommand\labelitemiii{\labelitemfont \bfseries \textemdash}
@@ -260,11 +262,11 @@
 
 \RequirePackage{amsthm}
 \theoremstyle{definition}
-\newtheorem{definition}{Определение}
-\newtheorem{theorem}{Теорема}
+\newtheorem{definition}{Определение}[section]
+\newtheorem{theorem}{Теорема}[section]
 \newtheorem{corollary}{Следствие}[theorem]
-\newtheorem{lemma}{Лемма}
-\newtheorem{example}{Пример}
+\newtheorem{lemma}{Лемма}[section]
+\newtheorem{example}{Пример}[section]
 
 
 
@@ -338,4 +340,7 @@
         }
         \setlength{\itemsep}{0pt}
     }
+
+\usepackage{chngcntr}
+\counterwithin{figure}{section}
 \endinput
