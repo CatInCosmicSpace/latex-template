@@ -1,0 +1,71 @@
+% =================================================
+%                 Стили заголовков
+% =================================================
+
+% Структурный элемент. Не использовать просто так!
+% ГОСТ 7.32-2017. Пункт 6.2.1:
+% Заголовки структурных элементов следует располагать 
+% в середине строки (\centering)
+% без точки в конце, прописными буквами, не подчеркивая. 
+% Каждый структурный элемент и каждый раздел основной части отчета начинают 
+% с новой страницы (\clearpage).
+\newcounter{structure}
+\renewcommand\thestructure{\@arabic\c@structure}
+\newcommand\structure{\@startsection{structure}{0}{0pt}
+        {1mm} % Отступ до заголовка
+        {1mm} % Отступ после заголовка
+        {\clearpage\normalfont\normalsize\bfseries\centering} % Стиль шрифта
+}
+
+% ГОСТ 7.32-2017. Пункт 6.2.2:
+% Основную часть отчета следует делить на 
+% разделы (section), 
+% подразделы (subsection) и 
+% пункты (subsubsection). 
+% Пункты при необходимости могут делиться на 
+% подпункты (paragraph). 
+% Разделы и подразделы отчета должны иметь заголовки. 
+% Пункты и подпункты, как правило, заголовков не имеют.
+
+% ГОСТ 7.32-2017. Пункт 6.4.1:
+% Разделы должны иметь порядковые номера в пределах всего отчета, обозначенные 
+% арабскими цифрами (\@arabic\c@section) без точки и 
+% расположенные с абзацного отступа (\indent).
+\newcounter{section}
+\renewcommand\thesection{\@arabic\c@section}
+\newcommand\section{\@startsection{section}{0}{0pt}
+        {1mm} % Отступ до заголовка
+        {1mm} % Отступ после заголовка
+        {\clearpage\indent\normalfont\normalsize\bfseries} % Стиль шрифта
+}
+
+% ГОСТ 7.32-2017. Пункт 6.4.1:
+% Подразделы должны иметь нумерацию в пределах каждого раздела. 
+% Номер подраздела состоит из номеров раздела и подраздела, разделенных точкой. 
+% В конце номера подраздела точка не ставится.
+\newcounter{subsection}[section]
+\renewcommand\thesubsection{\thesection.\@arabic\c@subsection}
+\newcommand\subsection{\@startsection{subsection}{1}{0pt}
+        {1mm} % Отступ до заголовка
+        {1mm} % Отступ после заголовка
+        {\indent\normalfont\normalsize\bfseries} % Стиль шрифта
+}
+
+% ГОСТ 7.32-2017. Пункт 6.4.1:
+% Разделы, как и подразделы, могут состоять из одного или нескольких пунктов.
+\newcounter{subsubsection}[subsection]
+\renewcommand\thesubsubsection{\thesubsection.\@arabic\c@subsubsection}
+\newcommand\subsubsection{\@startsection{subsubsection}{2}{\parindent}
+        {1mm} % Отступ до заголовка
+        {1mm} % Отступ после заголовка
+        {\normalfont\normalsize\bfseries}
+}
+
+% Параграф
+\newcounter{paragraph}[subsubsection]
+\renewcommand\theparagraph{\thesubsubsection.\@arabic\c@paragraph}
+\newcommand\paragraph{\@startsection{paragraph}{3}{\parindent}
+        {1mm} % Отступ до заголовка
+        {1mm} % Отступ после заголовка
+        {\normalfont\normalsize\bfseries}
+}
