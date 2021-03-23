@@ -3,12 +3,6 @@
 
 \LoadClass{article}
 
-\DeclareOption{coursework}{
-    \renewcommand\maketitle\courseworkTitle
-}
-\DeclareOption{research}{
-    \renewcommand\maketitle\researchTitle
-}
 \DeclareOption{diploma}{
     \renewcommand\maketitle\diplomaTitle
 }
