@@ -1,55 +1,60 @@
-\documentclass[research]{IU8}
+\documentclass[diploma]{IU8}
 
-\usepackage{blindtext}
-\usepackage{pdfpages}
+\usepackage{lipsum}
+\SetLipsumText{fishes}
 
-\theme{Создание отчёта по НИРС или курсовой}
+% \usepackage{pdfpages}
+
+\theme{Создание отчёта \\ по НИРС \\ или курсовой}
 \group{ИУ8-999}
-\profile{10У101}
-\speciality{10.05.01 <<Компьютерная безопасность>>}
-\specialization{10.05.01\_01 <<Математические методы защиты информации>>}
+% \profile{10У101}
+% \speciality{10.05.01 <<Компьютерная безопасность>>}
+% \specialization{10.05.01\_01 <<Математические методы защиты информации>>}
 
 \student{И. И. Иванов}
 \studentFullName{Иванов Иван Иванович}
 \supervisor{П. П. Петров}
 \supervisorDegree{к.т.н., доцент Петров П. П.}
+\economist{Н. Е. Беняев}
+\laws{Е. А. Тарапанова}
+\normcontroller{Т. Е. Завадская}
 
-\include{glossary}
+\include{example/glossary}
+\include{example/terms}
 
 \begin{document}
     \maketitle % Титульный лист
-    \includepdf[pages=-]{extra/task} % Задание
 
+    % \includepdf[pages=-]{extra/task} % Задание
     % \setcounter{page}{3} % Устанавливает счётчик страниц
-    \input{0-abstract} % Реферат
-
-    \tableofcontents % Содержание
-
-    \glossaries % Определения, сокращения и обозначения
-
-    \input{1-introduction} % Введение
-
-    \General % Признак начала основной части. Не удалять!
-
-    \input{2-00-titlepage}
-    \input{2-01-techtask}
-    \input{2-02-abstract}
-    \input{2-03-glossary}
-    \input{2-04-figures}
-    \input{2-05-citations}
-    \input{2-06-tables}
-    \input{2-07-enums}
-    \input{2-08-formulas}
-    \input{2-09-algorithms}
-    \input{2-10-math}
-    \input{2-11-listings}
     
-    \input{3-conclusion}
+    \include{example/0-abstract} % Реферат
 
-    \Bibliography{main} % Список использованных источников. Не удалять!
+    \tableofcontents % Содержание 
+    \termsanddefenitions % Термины и определения
+    \listofabbreviationsanddesignations % Перечень сокращений и обозначений
+ 
+    \include{example/1-introduction} % Введение
+
+    \include{example/2-00-titlepage}
+    \include{example/2-01-techtask}
+    \include{example/2-02-abstract}
+    \include{example/2-03-glossary}
+    \include{example/2-04-figures}
+    \include{example/2-05-citations}
+    \include{example/2-06-tables}
+    \include{example/2-07-enums}
+    \include{example/2-08-formulas}
+    \include{example/2-09-algorithms}
+    \include{example/2-10-math}
+    % \include{example/2-11-listings}
+    
+    \include{example/3-conclusion}
+
+    \references{main} % Список использованных источников. Не удалять!
 
     \appendix
-    \input{4-appendix-a}
-    \input{4-appendix-b}
-    \input{4-appendix-c}
+    \include{example/4-appendix-a}
+    \include{example/4-appendix-b}
+    \include{example/4-appendix-c}
 \end{document}

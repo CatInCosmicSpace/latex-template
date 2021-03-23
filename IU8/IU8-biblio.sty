@@ -1,0 +1,25 @@
+% =================================================
+%                 Список источников
+% =================================================
+\NeedsTeXFormat{LaTeX2e}[1995/12/01]
+\ProvidesPackage{IU8/IU8-biblio}[2021/03/21 v1.0]
+
+\bibliographystyle{ugost2008}
+\renewcommand{\@biblabel}[1]{#1.}
+\renewenvironment{thebibliography}[1]{
+    \structure{СПИСОК~ИСПОЛЬЗОВАННЫХ~ИСТОЧНИКОВ}
+    \list{\@biblabel{\@arabic\c@enumiv}}%
+        {\settowidth\labelwidth{\@biblabel{#1}}%
+            \leftmargin\labelwidth
+            \advance\leftmargin\labelsep
+            \@openbib@code
+            \usecounter{enumiv}
+            \let\p@enumiv\@empty
+            \renewcommand\theenumiv{\@arabic\c@enumiv}}}{}
+
+\addto{\captionsrussian}{%
+    \renewcommand{\refname}{
+        \structure*{СПИСОК~ИСПОЛЬЗОВАННЫХ~ИСТОЧНИКОВ}
+        \addcontentsline{toc}{section}{СПИСОК~ИСПОЛЬЗОВАННЫХ~ИСТОЧНИКОВ}
+    }
+}

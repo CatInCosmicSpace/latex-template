@@ -1,0 +1,73 @@
+\RequirePackage{fancyhdr}
+\fancypagestyle{year}{%
+  \fancyfoot[C]{\itshape Москва, \the\year~г.}
+  \renewcommand{\headrulewidth}{0pt}
+  \fancyhead{}
+}
+\RequirePackage{tabto}
+\RequirePackage{ulem}
+\RequirePackage[usestackEOL]{stackengine}
+\RequirePackage{lineno}
+
+
+\newcommand\makeBMSTUHeader{
+    \thispagestyle{year}
+    \noindent\begin{minipage}{0.05\textwidth}
+        \includegraphics[scale=0.4]{IU8/bmstu.png}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.85\textwidth}\raggedleft
+        \begin{center}
+            \fontsize{10pt}{0.3\baselineskip}\selectfont 
+            \textbf{Министерство науки и высшего образования 
+                Российской Федерации \\ 
+                Федеральное государственное бюджетное образовательное 
+                учреждение \\ 
+                высшего образования \\ 
+                <<Московский государственный технический университет \\ 
+                имени Н. Э. Баумана \\ 
+                (национальный исследовательский университет)>> \\ 
+                (МГТУ им. Н. Э. Баумана)
+            }
+        \end{center}
+    \end{minipage}
+    \begin{center}
+        \fontsize{12pt}{0.1\baselineskip}\selectfont
+        \noindent\makebox[\linewidth]{\rule{\textwidth}{2pt}} 
+        \makebox[\linewidth]{\rule{\textwidth}{1pt}}
+    \end{center}
+    \begin{flushleft}
+        \fontsize{12pt}{14pt}\selectfont
+        ФАКУЛЬТЕТ \tabto{3cm} <<Информатика и системы управления>> (ИУ)\\
+        КАФЕДРА \tabto{3cm} <<Информационная безопасность>> (ИУ8)
+    \end{flushleft}
+}
+
+\newcommand\makeUlineStack[3][3cm]{
+    \Shortunderstack{
+        \uline{\parbox{#1}{\centering #2}}\\
+        {\fontsize{9pt}{9pt}\selectfont #3}
+    }
+}
+
+\newcommand\fillingBox[3][3.5cm]{
+    \noindent#2 \hfill \makeUlineStack[2.5cm]{~}{(Подпись, дата)} \quad 
+    \makeUlineStack[#1]{#3}{(И. О. Фамилия)}\\
+}
+
+\newcommand\makeDiplomaTheme[1]{
+    \noindent
+    \begin{minipage}{\linewidth}
+        \centering\internallinenumbers\rmfamily\bfseries\fontsize{20pt}{20pt}\selectfont
+        \renewcommand{\makeLineNumber}{\rule[-0.7ex]{\textwidth}{0.4pt}\hss}%
+        #1
+    \end{minipage}
+}
+
+\RequirePackage{amsthm}
+\theoremstyle{definition}
+\newtheorem{definition}{Определение}[section]
+\newtheorem{theorem}{Теорема}[section]
+\newtheorem{corollary}{Следствие}[theorem]
+\newtheorem{lemma}{Лемма}[section]
+\newtheorem{example}{Пример}[section]

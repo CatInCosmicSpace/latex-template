@@ -1,0 +1,41 @@
+\section{Вставка кода}
+
+Хотя код и нужно вставлять в качестве приложений, покажу, как его можно использовать с помощью пакета \texttt{lstlisting}. Это оформлено не по ГОСТ, но я особо-то стандартов на листинги не нашла. Если найдёте --- сообщите.
+
+\listing[frame=rlbt,language=Python,caption={Пример использования листинга}]{inc/example.py}
+
+Стоит учесть, что данный стиль листингов не по ГОСТ и подсвечивает синтаксис (из-за чего не проходит \texttt{TestVKR.exe}).
+
+Следующий листинг показывает разрыв страницы и задание кода сразу в \texttt{tex}-файле:
+
+\begin{lstlisting}[frame=rlbt,language=Python,caption={Длинный листинг}]
+    import numpy as np
+        
+    def incmatrix(genl1,genl2):
+        m = len(genl1)
+        n = len(genl2)
+        M = None #to become the incidence matrix
+        VT = np.zeros((n*m,1), int)  #dummy variable
+        
+        #compute the bitwise xor matrix
+        M1 = bitxormatrix(genl1)
+        M2 = np.triu(bitxormatrix(genl2),1) 
+    
+        for i in range(m-1):
+            for j in range(i+1, m):
+                [r,c] = np.where(M2 == M1[i,j])
+                for k in range(len(r)):
+                    VT[(i)*n + r[k]] = 1;
+                    VT[(i)*n + c[k]] = 1;
+                    VT[(j)*n + r[k]] = 1;
+                    VT[(j)*n + c[k]] = 1;
+                    
+                    if M is None:
+                        M = np.copy(VT)
+                    else:
+                        M = np.concatenate((M, VT), 1)
+                    
+                    VT = np.zeros((n*m,1), int)
+        
+        return M
+    \end{lstlisting}

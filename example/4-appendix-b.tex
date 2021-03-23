@@ -1,0 +1,18 @@
+\appendixsection{Приложение с таблицей}
+
+Таблица~\ref{tab:b1} идёт с нумерацией приложения.
+
+\begin{table}    
+    \caption{Пример короткой таблицы с использованием tabular}
+    \begin{tabular}{|r|c|c|c|l|}\hline
+    Тело      & $F$ & $V$  & $E$ & $F+V-E-2$ \\ \hline
+    Тетраэдр  & 4   & 4    & 6   & 0         \\ \hhline{~-~-~}
+    Куб       & 6   & 8    & 12  & 0         \\ \hhline{--~~~}
+    Октаэдр   & 8   & 6    & 12  & 0         \\ \hhline{-----}
+    Додекаэдр & 20  & 12   & 30  & 0         \\ \hline
+    Икосаэдр  & 12  & 20   & 30  & 0         \\ \hline
+    \end{tabular}
+    \label{tab:b1}
+\end{table}
+
+\lipsum[1][1]
