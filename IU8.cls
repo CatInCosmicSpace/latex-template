@@ -707,5 +707,6 @@
   urlcolor=black, linkcolor=black, anchorcolor=black,
   citecolor=black, menucolor=black, filecolor=black,
 ]{hyperref} % Кликабельные ссылки в pdf
-
+\usepackage{bookmark}
+\def\toclevel@structure{1}
 \sloppy % Запретить выход за поля
