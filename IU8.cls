@@ -709,4 +709,5 @@
 ]{hyperref} % Кликабельные ссылки в pdf
 \usepackage{bookmark}
 \def\toclevel@structure{1}
+\usepackage[all, defaultlines=4]{nowidow}
 \sloppy % Запретить выход за поля
