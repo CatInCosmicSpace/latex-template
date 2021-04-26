@@ -654,7 +654,7 @@
 
     \fillingBox{Студент \hfill \makeUlineStack[2cm]{\groupNumber}{(Группа)}}{\studentName}
 
-    \fillingBox{Консультант по исследовательской части}{\supervisorName}
+    \fillingBox{Руководитель ВКР}{\supervisorName}
     
     \fillingBox{Консультант по конструкторской части}{\supervisorName}
     
