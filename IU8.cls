@@ -391,6 +391,7 @@
 
 \newcommand{\listofabbreviationsanddesignations}{
     \glsaddallunused
+    \clearpage
     \structure{ПЕРЕЧЕНЬ~СОКРАЩЕНИЙ~И~ОБОЗНАЧЕНИЙ}
 
     В настоящем отчете о выпускной квалификационной работе специалиста
