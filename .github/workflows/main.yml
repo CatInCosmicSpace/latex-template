@@ -32,4 +32,4 @@ jobs:
       - name: Compile document
         uses: xu-cheng/texlive-action/full@v1
         with:
-          root_file: main.tex
+          run: latexmk -pdf main.tex
