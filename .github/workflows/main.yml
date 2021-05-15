@@ -34,7 +34,7 @@ jobs:
 
       - name: Configure MikTeX
         run: |
-          miktexsetup finish
+          /opt/miktex/bin/miktexsetup finish 
           initexmf --set-config-value [MPM]AutoInstall=1
 
       # # Runs a set of commands using the runners shell
