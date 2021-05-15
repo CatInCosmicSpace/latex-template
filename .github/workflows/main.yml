@@ -30,6 +30,6 @@ jobs:
       #   run: sudo apt -y install texlive-full
 
       - name: Compile document
-        uses: xu-cheng/latex-action@v2
+        uses: xu-cheng/texlive-action/full@v1
         with:
           root_file: main.tex
