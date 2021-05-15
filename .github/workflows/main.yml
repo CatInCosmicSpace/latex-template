@@ -46,12 +46,16 @@ jobs:
         run: |
           latexmk -pdf main.tex
 
-      - uses: "marvinpinto/action-automatic-releases@latest"
+      - name: Git release
+        uses: docker://antonyurchenko/git-release:latest
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DRAFT_RELEASE: "false"
+          PRE_RELEASE: "false"
+          CHANGELOG_FILE: "CHANGELOG.md"
+          ALLOW_EMPTY_CHANGELOG: "false"
+          ALLOW_TAG_PREFIX: "true"
         with:
-          repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          automatic_release_tag: "latest"
-          prerelease: true
-          title: "Development Build"
-          files: |
-            IU8.cls
-            main.pdf
+          args: |
+              IU8.cls
+              main.pdf
