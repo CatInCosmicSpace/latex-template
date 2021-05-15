@@ -25,13 +25,10 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      # Runs a single command using the runners shell
-      - name: Setup TeX
+      # Runs a set of commands using the runners shell
+      - name: Show latexmk version
         with: 
           packages:
             texlive-full
-
-      # Runs a set of commands using the runners shell
-      - name: Show latexmk version
         run: |
           latexmk --version
