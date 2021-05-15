@@ -36,10 +36,12 @@ jobs:
         run: |
           /usr/bin/miktexsetup finish 
           initexmf --set-config-value [MPM]AutoInstall=1
+          echo Inited MikTeX
 
       # # Runs a set of commands using the runners shell
       # - name: Install TeXLive
       #   run: sudo apt -y install texlive-full
 
       - name: Compile document
-        run: latexmk -pdf main.tex
+        run: |
+          latexmk -pdf main.tex
