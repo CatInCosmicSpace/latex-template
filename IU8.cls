@@ -102,7 +102,7 @@
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
 \ProvidesPackage{IU8/IU8-biblio}[2021/03/21 v1.0]
 
-\bibliographystyle{gost2008}
+\bibliographystyle{ugost2008}
 \renewcommand{\@biblabel}[1]{#1.}
 \renewenvironment{thebibliography}[1]{
     \structure{СПИСОК~ИСПОЛЬЗОВАННЫХ~ИСТОЧНИКОВ}
