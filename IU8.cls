@@ -333,12 +333,16 @@
 \RequirePackage{xassoccnt}
 \RequirePackage{totcount}
 
+\newtotcounter{citenum}
+\def\oldbibitem{} \let\oldbibitem=\bibitem
+\def\bibitem{\stepcounter{citenum}\oldbibitem}
+
 \NewTotalDocumentCounter{totalfigures}
 \DeclareAssociatedCounters{figure}{totalfigures}
 \NewTotalDocumentCounter{totaltables}
 \DeclareAssociatedCounters{table}{totaltables}
 \NewTotalDocumentCounter{totalcites}
-\DeclareAssociatedCounters{biblio}{totalcites}
+\DeclareAssociatedCounters{citenum}{totalcites}
 
 \newcounter{apps}
 \NewTotalDocumentCounter{totalappendices}
