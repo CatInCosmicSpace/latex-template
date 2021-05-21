@@ -1,0 +1,26 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{12-IU8-abstract}[2021/03/21 v1.0 Реферат]
+
+% 6.12.1 Сведения об общем объеме отчета, количестве книг отчета, иллюстраций, 
+% таблиц, использованных источников, приложений являются первой компонентой 
+% реферата и располагаются с абзацного отступа, в строку, через запятые.
+
+% 6.12.2 Ключевые слова являются второй компонентой реферата. Они приводятся в 
+% именительном падеже и печатаются прописными буквами, в строку, через запятые, 
+% без абзацного отступа и переноса слов, без точки в конце перечня.
+
+% 6.12.3 Текст реферата помещается с абзацного отступа после ключевых слов. 
+% Для выделения структурных частей реферата в соответствии с 5.3.2.2 
+% используются абзацные отступы.
+
+\RequirePackage{lastpage}
+
+\renewcommand{\abstract}{
+    \structure*{РЕФЕРАТ}
+    
+    Отчёт содержит \pageref{LastPage} стр.\ifnum
+    \TotalValue{totalfigures}>0, \TotalValue{totalfigures} рис.\fi\ifnum
+    \TotalValue{totaltables}>0, \TotalValue{totaltables} табл.\fi\ifnum
+    \TotalValue{totalcites}>0, \TotalValue{totalcites} источн.\fi\ifnum
+    \TotalValue{totalappendices}>0, \TotalValue{totalappendices} прил.\fi
+}

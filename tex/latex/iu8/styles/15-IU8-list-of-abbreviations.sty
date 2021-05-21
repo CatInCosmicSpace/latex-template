@@ -1,0 +1,28 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{15-IU8-list-of-abbreviations}[2021/03/21 v1.0 Содержание]
+
+\RequirePackage[abbreviations]{glossaries-extra}
+
+\GlsSetXdyCodePage{utf8}
+
+\renewcommand{\glossarysection}[2][]{}
+
+\newglossarystyle{definitions}{
+    \renewenvironment{theglossary}{}{}
+    \renewcommand*{\glossentry}[2]{  
+        \noindent\glstarget{##1}{\glossentryname{##1}}~\textemdash~\glossentrydesc{##1}
+        \newline
+    } 
+    \renewcommand*{\glsgroupskip}{}
+}
+
+\newcommand{\listofabbreviations}{
+    \structure{ПЕРЕЧЕНЬ~СОКРАЩЕНИЙ~И~ОБОЗНАЧЕНИЙ}
+
+    \abbreviationsLine
+
+    \printunsrtglossary[
+        style=definitions,
+        type=\acronymtype
+    ]
+}

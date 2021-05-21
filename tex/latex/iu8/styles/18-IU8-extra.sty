@@ -1,0 +1,24 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{18-IU8-extra}[2021/03/21 v1.0 Разные улучшения]
+
+\RequirePackage[none]{hyphenat} % Отключим переносы, так красивее
+
+\RequirePackage[all, defaultlines=4]{nowidow} % Запрет "висячих" слов
+
+\sloppy % Запретить выход текста за поля
+
+\RequirePackage{bookmark}
+\def\toclevel@structure{1} % Для правильного отображения в содержании pdf
+
+\hypersetup{
+  colorlinks=true, 
+  unicode=true,
+  urlcolor=black, 
+  linkcolor=black, 
+  anchorcolor=black,
+  citecolor=black, 
+  menucolor=black, 
+  filecolor=black,
+} % Кликабельные ссылки в pdf
+
+\hbadness=10000

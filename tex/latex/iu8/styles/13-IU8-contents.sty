@@ -1,0 +1,28 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{13-IU8-contents}[2021/03/21 v1.0 Содержание]
+
+% Каждую запись содержания оформляют как отдельный абзац, выровненный влево. 
+% Номера страниц указывают выровненными по правому краю поля и соединяют 
+% с наименованием структурного элемента или раздела отчета посредством
+% отточия.
+
+\renewcommand\tableofcontents{
+    \structure*{СОДЕРЖАНИЕ}
+    \@starttoc{toc}
+}
+
+\renewcommand*\l@section{\@dottedtocline{0}{0mm}{2em}}
+\renewcommand*\l@structure{\@dottedtocline{0}{0mm}{0em}}
+% ГОСТ 7.32-2017. Пункт 5.4.1:
+% Обозначения подразделов приводят после абзацного отступа, 
+% равного двум знакам, относительно обозначения разделов.
+\renewcommand*\l@subsection{\@dottedtocline{1}{5mm}{3em}}
+% ГОСТ 7.32-2017. Пункт 5.4.1:
+% Обозначения пунктов приводят после абзацного отступа, 
+% равного четырем знакам, относительно обозначения разделов.
+\renewcommand*\l@subsubsection{\@dottedtocline{2}{10mm}{4em}}
+% Остальное - индуктивно
+\renewcommand*\l@paragraph{\@dottedtocline{3}{15mm}{5em}}
+
+\setcounter{secnumdepth}{5} % Глубина заголовков - до пятого уровня
+\setcounter{tocdepth}{2}    % Глубина содержания - до второго уровня

@@ -1,0 +1,236 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{10-IU8-titlepage}[2021/03/21 v1.0 Титульный лист]
+
+% Поля для заполнения для ВКР
+\def\student#1{\gdef\@student{#1}}
+\def\@student{\@latex@warning@no@line{No \noexpand\student given}}
+
+\def\theme#1{\gdef\@theme{#1}}
+\def\@theme{\@latex@warning@no@line{No \noexpand\theme given}}
+
+\def\group#1{\gdef\@group{#1}}
+\def\@group{\@latex@warning@no@line{No \noexpand\group given}}
+
+\def\supervisor#1{\gdef\@supervisor{#1}}
+\def\@supervisor{\@latex@warning@no@line{No \noexpand\supervisor given}}
+
+\def\researchConsultant#1{\gdef\@researchConsultant{#1}}
+\def\@researchConsultant{\@latex@warning@no@line{No \noexpand\researchConsultant given}}
+
+\def\designConsultant#1{\gdef\@designConsultant{#1}}
+\def\@designConsultant{\@latex@warning@no@line{No \noexpand\designConsultant given}}
+
+\def\technologicalConsultant#1{\gdef\@technologicalConsultant{#1}}
+\def\@technologicalConsultant{\@latex@warning@no@line{No \noexpand\technologicalConsultant given}}
+
+\def\economicsConsultant#1{\gdef\@economicsConsultant{#1}}
+\def\@economicsConsultant{\@latex@warning@no@line{No \noexpand\economicsConsultant given}}
+
+\def\lawsConsultant#1{\gdef\@lawsConsultant{#1}}
+\def\@lawsConsultant{\@latex@warning@no@line{No \noexpand\lawsConsultant given}}
+
+\def\normController#1{\gdef\@normController{#1}}
+\def\@normController{\@latex@warning@no@line{No \noexpand\normController given}}
+
+% Поля для заполнения для НИР
+\def\studentFullName#1{\gdef\@studentFullName{#1}}
+\def\@studentFullName{\@latex@warning@no@line{No \noexpand\studentFullName given}}
+
+\def\profile#1{\gdef\@profile{#1}}
+\def\@profile{\@latex@warning@no@line{No \noexpand\profile given}}
+
+\def\speciality#1{\gdef\@speciality{#1}}
+\def\@speciality{\@latex@warning@no@line{No \noexpand\speciality given}}
+
+\def\specialization#1{\gdef\@specialization{#1}}
+\def\@specialization{\@latex@warning@no@line{No \noexpand\specialization given}}
+
+\def\supervisorWithDegree#1{\gdef\@supervisorWithDegree{#1}}
+\def\@supervisorWithDegree{\@latex@warning@no@line{No \noexpand\supervisorWithDegree given}}
+
+
+\RequirePackage{fancyhdr}
+\fancypagestyle{year}{
+  \fancyfoot[C]{\itshape Москва, \the\year~г.}
+  \renewcommand{\headrulewidth}{0pt}
+  \fancyhead{}
+}
+
+\RequirePackage{tabto}
+\RequirePackage[normalem]{ulem}
+\RequirePackage[usestackEOL]{stackengine}
+\RequirePackage{lineno}
+\RequirePackage{xstring}
+\RequirePackage{ifthen}
+
+\newcommand\makeUlineStack[3][3cm]{
+    \Shortunderstack{
+        \uline{\parbox{#1}{\centering #2}}\\
+        {\fontsize{9pt}{9pt}\selectfont #3}
+    }
+}
+
+\newcommand\makeBMSTUHeader{
+    \noindent\begin{minipage}{0.05\textwidth}
+        \includegraphics[scale=0.4]{inc/bmstu.png}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.85\textwidth}\raggedleft
+        \begin{center}
+            \fontsize{10pt}{0.3\baselineskip}\selectfont 
+            \textbf{Министерство науки и высшего образования 
+                Российской Федерации \\ 
+                Федеральное государственное бюджетное образовательное 
+                учреждение \\ 
+                высшего образования \\ 
+                <<Московский государственный технический университет \\ 
+                имени Н. Э. Баумана \\ 
+                (национальный исследовательский университет)>> \\ 
+                (МГТУ им. Н. Э. Баумана)
+            }
+        \end{center}
+    \end{minipage}
+    \begin{center}
+        \fontsize{12pt}{0.1\baselineskip}\selectfont
+        \noindent\makebox[\linewidth]{\rule{\textwidth}{2pt}} 
+        \makebox[\linewidth]{\rule{\textwidth}{1pt}}
+    \end{center}
+    \begin{flushleft}
+        \fontsize{12pt}{14pt}\selectfont
+        ФАКУЛЬТЕТ \tabto{3cm} <<Информатика и системы управления>> (ИУ)\\
+        КАФЕДРА \tabto{3cm} <<Информационная безопасность>> (ИУ8)
+    \end{flushleft}
+}
+
+\newcommand\fillingBox[3][\maxlen]{
+    \noindent#2 \hfill \makeUlineStack[2.5cm]{~}{(Подпись, дата)} \quad 
+    \makeUlineStack[#1]{#3}{(И. О. Фамилия)}\\
+}
+
+\newcommand\makeDiplomaTheme[1]{
+    \noindent
+    \begin{minipage}{\linewidth}
+        \centering\internallinenumbers\rmfamily\bfseries\fontsize{20pt}{20pt}\selectfont
+        \renewcommand{\makeLineNumber}{\rule[-0.7ex]{\textwidth}{0.4pt}\hss}%
+        #1
+    \end{minipage}
+}
+
+\newlength{\maxlen}
+\newlength{\templen}
+
+\newcommand\CompLen[1]{
+    \settowidth{\templen}{#1}
+    \ifdim\templen>\maxlen
+        \settowidth{\maxlen}{#1}
+    \fi
+}
+
+\newcommand\fillDiplomaTitle{
+    \noindent\begin{center}
+        \centering\bfseries\fontsize{20pt}{25pt}\selectfont 
+        РАСЧЁТНО-ПОЯСНИТЕЛЬНАЯ~ЗАПИСКА\\
+        {\fontsize{16pt}{25pt}\bfseries\selectfont К~ВЫПУСКОЙ~КВАЛИФИКАЦИОННОЙ~РАБОТЕ}\\
+        {\fontsize{16pt}{25pt}\bfseries\selectfont НА~ТЕМУ:}
+    \end{center}
+
+    \vfill
+
+    \makeDiplomaTheme{\@theme}
+
+    \vfill
+
+    {\fontsize{12pt}{15pt}\selectfont
+
+    \fillingBox{Студент \hfill \makeUlineStack[2cm]{\@group}{(Группа)}}{\@student}
+
+    \fillingBox{Руководитель ВКР}{\@supervisor}
+
+    \fillingBox{Консультант по исследовательской части}{\@researchConsultant}
+
+    \fillingBox{Консультант по конструкторской части}{\@designConsultant}
+
+    \fillingBox{Консультант по технологической части}{\@technologicalConsultant}
+
+    \fillingBox{Консультант по организационно-\\экономической части}{\@economicsConsultant}
+
+    \fillingBox{Консультант по организационно-\\правовому обеспечению ИБ}{\@lawsConsultant}
+
+    \fillingBox{Нормоконтролер}{\@normController}
+    }
+}
+
+\newcommand\makeResearchTheme[1]{
+    \noindent на тему \uline{#1}
+}
+
+\newcommand\fillResearchTitle{
+    \noindent\begin{center}
+        \centering\bfseries\fontsize{20pt}{25pt}\selectfont 
+        Отчёт\\
+        {\fontsize{16pt}{25pt}\bfseries\selectfont по научно-исследовательской работе студента}\\
+    \end{center}
+
+    \vfill
+
+    \makeResearchTheme{\@theme}
+
+    \vfill
+    {
+        \setlength{\tabcolsep}{0pt}
+        \renewcommand{\arraystretch}{1.5}
+        \noindent \begin{tabular}{ll}
+            \noindent ФИО студента: & \@studentFullName \\
+            \noindent Группа: & \@group \\
+            \noindent Специальность: & \@speciality \\
+            \noindent Специализация: & \@specialization \\
+        \end{tabular}
+    }
+
+    \bigskip
+
+    \noindent Научный руководитель НИРС: \@supervisorWithDegree
+
+    \bigskip
+
+    \noindent Работа выполнена: \hfill \makeUlineStack[2.5cm]{~}{Дата} \quad \makeUlineStack[2.5cm]{~}{Подпись} \quad  \makeUlineStack[4cm]{\@student}{(И. О. Фамилия)}
+
+    \bigskip
+
+    \noindent Допуск к защите:  \hfill \makeUlineStack[2.5cm]{~}{Дата} \quad \makeUlineStack[2.5cm]{~}{Подпись} \quad  \makeUlineStack[4cm]{\@supervisor}{(И. О. Фамилия)}
+
+    \vfill
+    {
+        \setlength{\tabcolsep}{0pt}
+        \renewcommand{\arraystretch}{1.5}
+        \noindent \begin{tabular}{ll}
+            \noindent Дата защиты НИРС: & \makeUlineStack[6cm]{~}{~} \\
+            \noindent Результаты защиты: & \makeUlineStack[6cm]{~}{~} \\
+        \end{tabular}
+    }
+
+    \vfill 
+
+    \clearpage
+}
+
+\renewcommand\maketitle{
+    \begin{titlepage}
+        \settowidth{\maxlen}{\@student}
+        \CompLen{\@student}
+        \CompLen{\@supervisor}
+        \CompLen{\@researchConsultant}
+        \CompLen{\@designConsultant}
+        \CompLen{\@technologicalConsultant}
+        \CompLen{\@economicsConsultant}
+        \CompLen{\@lawsConsultant}
+        \CompLen{\@normController}
+        
+        \thispagestyle{year}
+        \makeBMSTUHeader
+
+        \fillTitle
+
+        \clearpage
+    \end{titlepage}
+}

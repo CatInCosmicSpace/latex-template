@@ -1,0 +1,26 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{16-IU8-references}[2021/03/21 v1.0 Список использованных источников]
+
+% Сведения об источниках следует располагать в порядке появления ссылок на 
+% источники в тексте отчета и нумеровать арабскими цифрами с точкой и печатать 
+% с абзацного отступа.
+\usepackage[
+    backend=biber,
+    style=gost-numeric,
+    % refsection=structure,
+    % sorting=ynt,
+]{biblatex}
+\defbibheading{bibliography}[СПИСОК~ИСПОЛЬЗОВАННЫХ~ИСТОЧНИКОВ]{\structure{#1}}
+\addto{\captionsrussian}{%
+    \renewcommand{\contentsname}{СОДЕРЖАНИЕ}
+}
+
+% \bibliographystyle{ugost2008}
+% \renewcommand{\@biblabel}[1]{#1.}
+
+    % \usepackage{natbib}
+% \renewcommand\bibsection{%
+%   \structure*{{\normalsize\underline{\refname}}\@mkboth{\MakeUppercase{\refname}}{\MakeUppercase{\refname}}}%
+% }%
+% \def\bibheading{bibliography}{\section*{Bibliography}}
+% \usepackage[nottoc,numbib]{tocbibind}

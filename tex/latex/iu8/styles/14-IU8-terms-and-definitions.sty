@@ -1,0 +1,43 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{14-IU8-terms-and-definitions}[2021/03/21 v1.0 Содержание]
+
+\RequirePackage[
+    acronym, 
+    automake, 
+    nopostdot, 
+    xindy={glsnumbers=false, language=russian},
+]{glossaries}
+\RequirePackage[abbreviations]{glossaries-extra}
+
+\GlsSetXdyCodePage{utf8}
+
+\renewcommand{\glossarysection}[2][]{}
+
+\newglossarystyle{terms}{
+    \renewenvironment{theglossary}{}{}
+    \renewcommand*{\glossentry}[2]{  
+        \noindent\glstarget{##1}{\glossentryname{##1}}~\textemdash~\glossentrydesc{##1}
+        \newline
+    } 
+    \renewcommand*{\glsgroupskip}{}%  
+}
+
+\newcommand{\termsanddefenitions}{
+    \structure{ТЕРМИНЫ~И~ОПРЕДЕЛЕНИЯ}
+
+    \termsAndDefinitionsLine
+    
+    \printunsrtglossary[
+        style=terms,
+        nonumberlist
+    ]
+}
+
+% \newglossarystyle{definitions}{%  
+%  \renewenvironment{theglossary}{}{}
+%   \renewcommand*{\glossentry}[2]{  
+%     \noindent\glstarget{##1}{\glossentryname{##1}}~\textemdash~\glossentrydesc{##1}
+%     \newline
+%   } 
+%  \renewcommand*{\glsgroupskip}{}%  
+% }

@@ -1,0 +1,21 @@
+\NeedsTeXFormat{LaTeX2e}[1995/12/01]
+\ProvidesPackage{19-IU8-counters}[2021/03/21 v1.0 Счётчики]
+
+\RequirePackage{calc}
+\RequirePackage{xassoccnt}
+\RequirePackage{totcount}
+
+\NewTotalDocumentCounter{totalfigures}
+\DeclareAssociatedCounters{figure}{totalfigures}
+\NewTotalDocumentCounter{totaltables}
+\DeclareAssociatedCounters{table}{totaltables}
+
+\RequirePackage{totcount}
+\newtotcounter{citenum}
+\AtEveryBibitem{\stepcounter{citenum}}
+\NewTotalDocumentCounter{totalcites}
+\DeclareAssociatedCounters{citenum}{totalcites}
+
+\newcounter{apps}
+\NewTotalDocumentCounter{totalappendices}
+\DeclareAssociatedCounters{apps}{totalappendices}

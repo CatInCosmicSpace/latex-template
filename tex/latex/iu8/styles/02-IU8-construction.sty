@@ -1,0 +1,65 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{02-IU8-construction}[2021/03/21 v1.0 Построение отчета]
+
+% 6.2.1 Наименования структурных элементов отчета: 
+% "СПИСОК ИСПОЛНИТЕЛЕЙ", % у нас не используется
+% "РЕФЕРАТ", % У нас не используется
+% "СОДЕРЖАНИЕ",
+% "ТЕРМИНЫ И ОПРЕДЕЛЕНИЯ", 
+% "ПЕРЕЧЕНЬ СОКРАЩЕНИЙ И ОБОЗНАЧЕНИЙ", 
+% "ВВЕДЕНИЕ", 
+% "ЗАКЛЮЧЕНИЕ", 
+% "СПИСОК ИСПОЛЬЗОВАННЫХ ИСТОЧНИКОВ", 
+% "ПРИЛОЖЕНИЕ" 
+% служат заголовками структурных элементов отчета.
+
+% Заголовки структурных элементов следует располагать в середине строки без 
+% точки в конце, прописными буквами, не подчеркивая. Каждый структурный элемент 
+% и каждый раздел основной части отчета начинают с новой страницы.
+\RequirePackage{titlesec}
+\RequirePackage{titletoc}
+\RequirePackage{chngcntr}
+
+\newcounter{structure}
+\renewcommand{\thestructure}{} % Убрать появление счётчика в содержании
+\titleclass{\structure}{straight}[\section]
+\titleformat{\structure}[hang]{\clearpage\normalfont\bfseries\centering}{}{0em}{}
+\titlespacing*{\structure}{0pt}{0pt}{2\baselineskip}
+\titlecontents{structure}{}{}{}{}
+\renewcommand*\l@structure{\@dottedtocline{0}{0mm}{0em}}
+
+\newcommand{\structurebreak}{\clearpage}
+\newcommand{\sectionbreak}{\clearpage}
+
+% 6.2.2 Основную часть отчета следует делить на разделы, подразделы и пункты. 
+% Пункты при необходимости могут делиться на подпункты. Разделы и подразделы 
+% отчета должны иметь заголовки. Пункты и подпункты, как правило, заголовков не 
+% имеют.
+
+% 6.2.3 Заголовки разделов и подразделов основной части отчета следует начинать 
+% с абзацного отступа и размещать после порядкового номера, печатать с 
+% прописной буквы, полужирным шрифтом, не подчеркивать, без точки в конце. 
+% Пункты и подпункты могут иметь только порядковый номер без заголовка, 
+% начинающийся с абзацного отступа.
+\titleformat{\section}[block]{\hspace{\parindent}\normalfont\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}[block]{\hspace{\parindent}\normalfont\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}[block]{\hspace{\parindent}\normalfont\bfseries}{\thesubsubsection}{1em}{}
+\titleformat{\paragraph}[block]{\hspace{\parindent}\normalfont\bfseries}{\theparagraph}{1em}{}
+\titleformat{\subparagraph}[block]{\hspace{\parindent}\normalfont\bfseries}{\thesubparagraph}{1em}{}
+
+\titlespacing*{\section}{0pt}{0pt}{2ex}[2ex]
+\titlespacing*{\subsection}{0pt}{2ex}{2ex}[2ex]
+\titlespacing*{\subsubsection}{0pt}{2ex}{2ex}[2ex]
+\titlespacing*{\paragraph}{0pt}{2ex}{2ex}[2ex]
+\titlespacing*{\subparagraph}{0pt}{2ex}{2ex}[2ex]
+
+% 6.2.4 Если заголовок включает несколько предложений, их разделяют точками. 
+% Переносы слов в заголовках не допускаются.
+
+\newcommand{\introduction}{
+    \structure{ВВЕДЕНИЕ}
+}
+
+\newcommand{\conclusion}{
+    \structure{ЗАКЛЮЧЕНИЕ}
+}
