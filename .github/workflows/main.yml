@@ -40,7 +40,7 @@ jobs:
 
       - name: Compile document
         run: |
-          sudo initexmf --register-root $PWD
+          initexmf --register-root $PWD
           cd ./example
           latexmk -pdf main.tex
 
