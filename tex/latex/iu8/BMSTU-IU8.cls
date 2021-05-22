@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{IU8}[2020/06/01 IU8 class]
+\ProvidesClass{BMSTU-IU8}[2020/06/01 IU8 class]
 
 \LoadClass{article}
 
