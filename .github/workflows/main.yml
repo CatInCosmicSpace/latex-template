@@ -29,6 +29,11 @@ jobs:
           sudo initexmf --admin --set-config-value [MPM]AutoInstall=1
           echo Inited MikTeX
 
+      - name: Update MikTeX
+        run: |
+          mpm --find-updates
+          mpm --update
+
       - name: Compile document
         run: |
           initexmf --register-root $PWD
@@ -37,11 +42,12 @@ jobs:
 
       - name: Clean after build
         run: |
+          cd ./example
           latexmk -c ./main.tex
 
       - name: Compile example
         run: |
-          cd ../tex/latex/bmstu-iu8
+          cd ./tex/latex/bmstu-iu8
           latexmk -pdf bmstu-example.tex
           latexmk -c ./bmstu-example.tex
 
@@ -51,7 +57,7 @@ jobs:
 
       - name: Zip files
         run: |
-          cd ../../..
+          cd ./tex/latex/bmstu-iu8
           zip -r bmstu-iu8.zip ./tex
 
       - name: Git artifact
