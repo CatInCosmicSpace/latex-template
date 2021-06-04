@@ -34,35 +34,47 @@ jobs:
           sudo mpm --find-updates
           sudo mpm --update
 
-      - name: Compile document
+      - name: Compile full example
         run: |
           initexmf --register-root $PWD
-          cd ./example
+          cd ./full-example
           latexmk -pdf main.tex
 
-      - name: Clean after build
+      - name: Clean after build full example
         run: |
-          cd ./example
+          cd ./full-example
           latexmk -c ./main.tex
 
-      - name: Compile example
+      - name: Compile minimal example
         run: |
-          cd ./tex/latex/bmstu-iu8
+          cd ./example
           latexmk -pdf bmstu-example.tex
+      
+      - name: Clean after build minimal example
+        run: |
+          cd ./example
           latexmk -c ./bmstu-example.tex
 
-      - name: ls tex dir
+      - name: Make CTAN package
         run: |
-          ls -lah .
+          mkdir bmstu-iu8
+          cp -r ./tex ./bmstu-iu8
+          cp -r ./example/* ./bmstu-iu8/
 
       - name: Zip files
         run: |
-          zip -r bmstu-iu8.zip ./tex
+          zip -r bmstu-iu8.zip ./bmstu-iu8
 
-      - name: Git artifact
+      - name: "Git artifact: PDF"
         uses: actions/upload-artifact@v2
         with:
           name: PDF
           path: |
-            ./example/main.pdf
+            ./full-example/main.pdf
+      
+      - name: "Git artifact: CTAN zip"
+        uses: actions/upload-artifact@v2
+        width:
+          name: CTAN zip
+          path: |
             ./bmstu-iu8.zip
