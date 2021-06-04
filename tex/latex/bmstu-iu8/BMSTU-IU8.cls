@@ -25,7 +25,6 @@
 \RequirePackage[utf8]{inputenc}
 \RequirePackage[russian]{babel}
 \RequirePackage{hyphsubst}
-\RequirePackage{csquotes}
 
 \RequirePackage{01-IU8-base}
 \RequirePackage{02-IU8-construction}
@@ -49,5 +48,7 @@
 \RequirePackage{20-IU8-listing}
 \RequirePackage{21-IU8-math}
 \RequirePackage{22-IU8-algorithms}
+
+\RequirePackage{csquotes}
 
 \makeglossaries
