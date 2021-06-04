@@ -57,7 +57,6 @@ jobs:
 
       - name: Zip files
         run: |
-          cd ./tex/latex/bmstu-iu8
           zip -r bmstu-iu8.zip ./tex
 
       - name: Git artifact
