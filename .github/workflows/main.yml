@@ -15,24 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Install MikTeX
-        run: |
-          sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys D6BC243565B2087BC3F897C9277A7293F59E4889
-          echo "deb http://miktex.org/download/ubuntu focal universe" | sudo tee /etc/apt/sources.list.d/miktex.list
-          sudo apt update
-          sudo apt install miktex
-          echo Installed MikTeX
-
-      - name: Configure MikTeX
-        run: |
-          sudo miktexsetup --shared=yes finish 
-          sudo initexmf --admin --set-config-value [MPM]AutoInstall=1
-          echo Inited MikTeX
-
-      - name: Update MikTeX
-        run: |
-          sudo mpm --admin --find-updates
-          sudo mpm --admin --update
+      - uses: CatInCosmicSpace/latex-template/actions/miktex.yaml@master
 
       - name: Compile full example
         run: |
@@ -45,36 +28,9 @@ jobs:
           cd ./full-example
           latexmk -c ./main.tex
 
-      - name: Compile minimal example
-        run: |
-          cd ./example
-          latexmk -pdf bmstu-example.tex
-      
-      - name: Clean after build minimal example
-        run: |
-          cd ./example
-          latexmk -c ./bmstu-example.tex
-
-      - name: Make CTAN package
-        run: |
-          mkdir bmstu-iu8
-          cp -r ./tex ./bmstu-iu8
-          cp -r ./example/* ./bmstu-iu8/
-
-      - name: Zip files
-        run: |
-          zip -r bmstu-iu8.zip ./bmstu-iu8
-
       - name: "Git artifact: PDF"
         uses: actions/upload-artifact@v2
         with:
           name: PDF
           path: |
             ./full-example/main.pdf
-      
-      - name: "Git artifact: CTAN zip"
-        uses: actions/upload-artifact@v2
-        with:
-          name: CTAN zip
-          path: |
-            ./bmstu-iu8.zip
