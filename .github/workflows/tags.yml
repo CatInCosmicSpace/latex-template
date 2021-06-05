@@ -50,13 +50,13 @@ jobs:
 
       - name: Make CTAN package
         run: |
-          mkdir bmstu-iu8
-          cp -r ./tex ./bmstu-iu8
-          cp -r ./example/* ./bmstu-iu8/
+          mkdir dist
+          cp -r ./tex ./dist
+          cp -r ./example/* ./dist/
 
       - name: Zip files
         run: |
-          cd ./bmstu-iu8
+          cd ./dist
           zip -r bmstu-iu8.zip ./*
       
       - name: "Git artifact: CTAN zip"
@@ -64,7 +64,7 @@ jobs:
         with:
           name: CTAN zip
           path: |
-            ./bmstu-iu8/bmstu-iu8.zip
+            ./dist/bmstu-iu8.zip
 
       - name: "Upload to CTAN"
         uses: pgf-tikz/actions/ctan-upload@master
@@ -74,7 +74,7 @@ jobs:
           bugs: https://github.com/CatInCosmicSpace/latex-template/issues
           ctanPath: /macros/latex/contrib/bmstu-iu8
           email: catincosmicspace@gmail.com
-          file: './bmstu-iu8/bmstu-iu8.zip'
+          file: './dist/bmstu-iu8.zip'
           home: https://github.com/CatInCosmicSpace/latex-template
           license: 'mit'
           pkg: "bmstu-iu8 "
