@@ -39,6 +39,7 @@ jobs:
 
       - name: Compile minimal example
         run: |
+          initexmf --register-root $PWD
           cd ./example
           latexmk -pdf bmstu-example.tex
       
