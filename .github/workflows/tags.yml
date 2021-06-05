@@ -37,17 +37,6 @@ jobs:
           sudo mpm --find-updates
           sudo mpm --update
 
-      - name: Compile full example
-        run: |
-          initexmf --register-root $PWD
-          cd ./full-example
-          latexmk -pdf main.tex
-
-      - name: Clean after build full example
-        run: |
-          cd ./full-example
-          latexmk -c ./main.tex
-
       - name: Compile minimal example
         run: |
           cd ./example
@@ -68,13 +57,6 @@ jobs:
         run: |
           cd ./bmstu-iu8
           zip -r bmstu-iu8.zip ./*
-
-      - name: "Git artifact: PDF"
-        uses: actions/upload-artifact@v2
-        with:
-          name: PDF
-          path: |
-            ./full-example/main.pdf
       
       - name: "Git artifact: CTAN zip"
         uses: actions/upload-artifact@v2
@@ -94,7 +76,7 @@ jobs:
           file: './bmstu-iu8/bmstu-iu8.zip'
           home: https://github.com/CatInCosmicSpace/latex-template
           license: 'mit'
-          pkg: "bmstu-iu8"
+          pkg: "bmstu-iu8 "
           repository: https://github.com/CatInCosmicSpace/latex-template
           summary: This package consist of a class file and style files for writing reports at the IU8 department of IU faculty of BMSTU.
           support: https://t.me/CatInCosmicSpace
