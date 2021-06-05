@@ -14,6 +14,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: 'Get tag'
+        run: |
+          echo "GIT_TAG=$(git describe --abbrev=0 --tags)" >> $GITHUB_ENV
+
       - name: Install MikTeX
         run: |
           sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys D6BC243565B2087BC3F897C9277A7293F59E4889
@@ -62,7 +66,8 @@ jobs:
 
       - name: Zip files
         run: |
-          zip -r bmstu-iu8.zip ./bmstu-iu8
+          cd ./bmstu-iu8
+          zip -r bmstu-iu8.zip ./*
 
       - name: "Git artifact: PDF"
         uses: actions/upload-artifact@v2
@@ -76,7 +81,7 @@ jobs:
         with:
           name: CTAN zip
           path: |
-            ./bmstu-iu8.zip
+            ./bmstu-iu8/bmstu-iu8.zip
 
       - name: "Upload to CTAN"
         uses: pgf-tikz/actions/ctan-upload@master
@@ -86,12 +91,12 @@ jobs:
           bugs: https://github.com/CatInCosmicSpace/latex-template/issues
           ctanPath: /macros/latex/contrib/bmstu-iu8
           email: catincosmicspace@gmail.com
-          file: 'bmstu-iu8.zip'
+          file: './bmstu-iu8/bmstu-iu8.zip'
           home: https://github.com/CatInCosmicSpace/latex-template
           license: 'mit'
           pkg: bmstu-iu8
           repository: https://github.com/CatInCosmicSpace/latex-template
-          summary: This package consist of a class file and style files for writing reports at the IU8 department of IU faculty of BMSTU (Bauman Moscow State Technical University).
+          summary: This package consist of a class file and style files for writing reports at the IU8 department of IU faculty of BMSTU.
           support: https://t.me/CatInCosmicSpace
           update: true
           uploader: github-actions
