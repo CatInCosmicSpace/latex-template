@@ -66,11 +66,8 @@ jobs:
             ./bmstu-iu8.zip
 
       - name: "Remove bmstu-iu8 directory"
-        uses: actions/upload-artifact@v2
-        with:
-          name: CTAN zip
-          path: |
-            rm -rf ./bmstu-iu8
+        run: |
+          rm -rf ./bmstu-iu8
 
       - name: "Upload to CTAN"
         uses: pgf-tikz/actions/ctan-upload@master
