@@ -18,7 +18,7 @@ jobs:
         run: |
           echo "GIT_TAG=$(git describe --abbrev=0 --tags)" >> $GITHUB_ENV
 
-      - uses: CatInCosmicSpace/latex-template/actions/miktex.yaml@master
+      - uses: CatInCosmicSpace/latex-template/actions/miktex@master
 
       - name: Compile minimal example
         run: |
