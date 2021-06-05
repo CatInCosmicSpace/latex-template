@@ -94,7 +94,7 @@ jobs:
           file: './bmstu-iu8/bmstu-iu8.zip'
           home: https://github.com/CatInCosmicSpace/latex-template
           license: 'mit'
-          pkg: bmstu-iu8
+          pkg: "bmstu-iu8"
           repository: https://github.com/CatInCosmicSpace/latex-template
           summary: This package consist of a class file and style files for writing reports at the IU8 department of IU faculty of BMSTU.
           support: https://t.me/CatInCosmicSpace
