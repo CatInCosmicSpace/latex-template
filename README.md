@@ -1,5 +1,8 @@
 # Шаблон РПЗ по НИРС или ВКР для ИУ8 
 
+![main workflow](https://github.com/CatInCosmicSpace/latex-template/actions/workflows/main.yml/badge.svg)
+![publish workflow](https://github.com/CatInCosmicSpace/latex-template/actions/workflows/tags.yml/badge.svg)
+
 Пакет подключается сразу и не требует скачивания! 
 Пример заполнения титульного листа и вообще построения документа можно найти 
 в директории `full-example` этого репозитория.
@@ -24,7 +27,9 @@
 * листинги.
 
 Пример, приведённый в директории `full-example`, служит только в качестве примера! 
-А пример `example` приводит _минимальный_ пример скомпилированного файла.
+А пример `example` приводит _минимальный_
+
+ пример скомпилированного файла.
 Его не нужно скачивать. И этот пример проходит `TestVKR`, исключая замечание 
 по количеству страниц.
 
