@@ -16,10 +16,8 @@ jobs:
       - uses: actions/checkout@v2
 
       - uses: CatInCosmicSpace/latex-template/actions/miktex@master
-        retry_on: error
 
       - name: Compile full example
-        retry_on: error
         run: |
           initexmf --register-root $PWD
           cd ./full-example

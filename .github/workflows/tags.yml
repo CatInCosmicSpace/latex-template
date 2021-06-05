@@ -19,10 +19,8 @@ jobs:
           echo "GIT_TAG=$(git describe --abbrev=0 --tags)" >> $GITHUB_ENV
 
       - uses: CatInCosmicSpace/latex-template/actions/miktex@master
-        retry_on: error
 
       - name: Compile minimal example
-        retry_on: error
         run: |
           initexmf --register-root $PWD
           cd ./example
