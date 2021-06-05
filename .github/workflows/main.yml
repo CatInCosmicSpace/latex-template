@@ -31,8 +31,8 @@ jobs:
 
       - name: Update MikTeX
         run: |
-          sudo mpm --find-updates
-          sudo mpm --update
+          sudo mpm --admin --find-updates
+          sudo mpm --admin --update
 
       - name: Compile full example
         run: |
