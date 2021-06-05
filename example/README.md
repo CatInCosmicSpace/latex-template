@@ -9,8 +9,5 @@ in respect of russian standard GOST 7.32-2017. But there are
 correctives to be compatible with our local IU8 department
 requirements.
 
-This package was made by a student for use by other students 
-interested in LaTeX.
-
-Please do not use this package if you are not a student of our department.
-
+The package and any later version of this package is published under the MIT 
+license.
