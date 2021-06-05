@@ -3,6 +3,7 @@ runs:
   using: 'composite'
   steps:
     - name: Install MikTeX
+      shell: bash
       run: |
         sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys D6BC243565B2087BC3F897C9277A7293F59E4889
         echo "deb http://miktex.org/download/ubuntu focal universe" | sudo tee /etc/apt/sources.list.d/miktex.list
@@ -11,17 +12,20 @@ runs:
         echo Installed MikTeX
 
     - name: Configure MikTeX
+      shell: bash
       run: |
         sudo miktexsetup --shared=yes finish 
         sudo initexmf --admin --set-config-value [MPM]AutoInstall=1
         echo Inited MikTeX
 
     - name: Update MikTeX (admin)
+      shell: bash
       run: |
         sudo mpm --admin --find-updates
         sudo mpm --admin --update
 
     - name: Update MikTeX (user)
+      shell: bash
       run: |
         sudo mpm --find-updates
         sudo mpm --update
