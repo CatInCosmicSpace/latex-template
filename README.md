@@ -1,7 +1,8 @@
 # Шаблон РПЗ по НИРС или ВКР для ИУ8 
 
-![main workflow](https://github.com/CatInCosmicSpace/latex-template/actions/workflows/main.yml/badge.svg)
-![publish workflow](https://github.com/CatInCosmicSpace/latex-template/actions/workflows/tags.yml/badge.svg)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/CatInCosmicSpace/latex-template/CI?label=CI&logo=github)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/CatInCosmicSpace/latex-template/CI?label=CTAN&logo=github)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/CatInCosmicSpace/latex-template/CI?label=CTAN&logo=latex)
 
 Пакет подключается сразу и не требует скачивания! 
 Пример заполнения титульного листа и вообще построения документа можно найти 
