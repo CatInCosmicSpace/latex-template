@@ -1,7 +1,7 @@
 # Шаблон РПЗ по НИРС или ВКР для ИУ8 
 
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/CatInCosmicSpace/latex-template/CI?label=CI&logo=github)
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/CatInCosmicSpace/latex-template/CTAN?label=CTAN&logo=github)
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/CatInCosmicSpace/latex-template/main.yml?branch=master&logo=github&label=CI)
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/CatInCosmicSpace/latex-template/tags.yml?label=CTAN&logo=github)
 ![CTAN](https://img.shields.io/ctan/v/bmstu-iu8?label=CTAN&logo=latex)
 
 Пакет подключается сразу и не требует скачивания! 
