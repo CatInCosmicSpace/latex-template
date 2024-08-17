@@ -36,6 +36,7 @@ jobs:
           mkdir bmstu-iu8
           cp -r ./tex/latex/bmstu-iu8 ./bmstu-iu8/
           cp -r ./example/* ./bmstu-iu8/
+          rm -rf ./bmstu-iu8/bmstu-example.bbl
 
       - name: Zip files
         run: |
