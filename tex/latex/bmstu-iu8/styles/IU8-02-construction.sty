@@ -29,6 +29,14 @@
 \titlecontents{structure}{}{}{}{}
 \renewcommand*\l@structure{\@dottedtocline{0}{0mm}{0em}}
 
+\makeatletter
+\renewcommand*\l@section{\@dottedtocline{0}{12.5mm}{2em}}
+\renewcommand*\l@structure{\@dottedtocline{0}{12.5mm}{0em}}
+\renewcommand*\l@subsection{\@dottedtocline{1}{12.5mm}{3em}}
+\renewcommand*\l@subsubsection{\@dottedtocline{2}{12.5mm}{4em}}
+\renewcommand*\l@paragraph{\@dottedtocline{3}{12.5mm}{5em}}
+\makeatother
+
 \newcommand{\structurebreak}{\clearpage}
 \newcommand{\sectionbreak}{\clearpage}
 
