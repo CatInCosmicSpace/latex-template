@@ -25,17 +25,10 @@
 \renewcommand{\thestructure}{} % Убрать появление счётчика в содержании
 \titleclass{\structure}{straight}[\section]
 \titleformat{\structure}[hang]{\clearpage\normalfont\bfseries\centering}{}{0em}{}
-\titlespacing*{\structure}{0pt}{0pt}{2\baselineskip}
+\titlespacing*{\structure}{0pt}{0pt}{1em}
 \titlecontents{structure}{}{}{}{}
 \renewcommand*\l@structure{\@dottedtocline{0}{0mm}{0em}}
 
-\makeatletter
-\renewcommand*\l@section{\@dottedtocline{0}{12.5mm}{2em}}
-\renewcommand*\l@structure{\@dottedtocline{0}{12.5mm}{0em}}
-\renewcommand*\l@subsection{\@dottedtocline{1}{12.5mm}{3em}}
-\renewcommand*\l@subsubsection{\@dottedtocline{2}{12.5mm}{4em}}
-\renewcommand*\l@paragraph{\@dottedtocline{3}{12.5mm}{5em}}
-\makeatother
 
 \newcommand{\structurebreak}{\clearpage}
 \newcommand{\sectionbreak}{\clearpage}
@@ -61,6 +54,14 @@
 \titlespacing*{\subsubsection}{0pt}{2ex}{2ex}[2ex]
 \titlespacing*{\paragraph}{0pt}{2ex}{2ex}[2ex]
 \titlespacing*{\subparagraph}{0pt}{2ex}{2ex}[2ex]
+
+\makeatletter
+\renewcommand*\l@section{\@dottedtocline{0}{12.5mm}{2em}}
+\renewcommand*\l@structure{\@dottedtocline{0}{12.5mm}{0em}}
+\renewcommand*\l@subsection{\@dottedtocline{1}{12.5mm}{3em}}
+\renewcommand*\l@subsubsection{\@dottedtocline{2}{12.5mm}{4em}}
+\renewcommand*\l@paragraph{\@dottedtocline{3}{12.5mm}{5em}}
+\makeatother
 
 % 6.2.4 Если заголовок включает несколько предложений, их разделяют точками. 
 % Переносы слов в заголовках не допускаются.
