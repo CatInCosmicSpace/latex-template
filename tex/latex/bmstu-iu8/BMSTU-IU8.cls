@@ -1,6 +1,6 @@
 % Author: CatInCosmicSpace
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{BMSTU-IU8}[2024/08/17 IU8 class]
+\ProvidesClass{BMSTU-IU8}[2024/09/09 IU8 class]
 
 \LoadClass{article}
 
