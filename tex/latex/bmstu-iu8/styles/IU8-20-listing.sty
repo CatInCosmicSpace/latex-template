@@ -10,7 +10,7 @@
 
 \lstdefinestyle{IU8}{
     frame=single,
-    backgroundcolor=\color{seashell},
+    % backgroundcolor=\color{seashell},
     commentstyle=\color{blue},
     keywordstyle=\color{magenta},
     basicstyle=\ttfamily\footnotesize,
@@ -36,3 +36,25 @@
 \newcommand{\listing}[2][]{%
     \lstinputlisting[caption={\texttt{\detokenize{#2}}},#1]{#2}%
 }
+
+\lstnewenvironment{codelisting}[1][]
+{
+\lstset{
+    frame=single,
+    % backgroundcolor=\color{seashell},
+    commentstyle=\color{blue},
+    keywordstyle=\color{magenta},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=tl,
+    keepspaces=false,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,         
+    extendedchars=\true,         
+    tabsize=2,
+    #1
+}
+}
+{}

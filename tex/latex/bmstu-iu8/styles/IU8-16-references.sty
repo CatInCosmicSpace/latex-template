@@ -12,6 +12,17 @@
     % refsection=structure,
     % sorting=ynt,
 ]{biblatex}
+
+\defbibenvironment{bibliography}
+  {\list
+     {}
+     {\setlength{\leftmargin}{1.25cm}
+      \setlength{\itemindent}{0em}
+      \setlength{\itemsep}{\bibitemsep}
+      \setlength{\parsep}{\bibparsep}}}
+  {\endlist}
+  {\item\printtext[labelnumberwidth]{\printfield{labelprefix}\printfield{labelnumber}}\addspace}
+
 \defbibheading{bibliography}[СПИСОК~ИСПОЛЬЗОВАННЫХ~ИСТОЧНИКОВ]{\structure{#1}}
 \addto{\captionsrussian}{%
     \renewcommand{\contentsname}{СОДЕРЖАНИЕ}
@@ -23,3 +34,6 @@
 
 % Специально изменим шрифт для URL, чтобы он соответсвовал ГОСТ и остальному тексту документа
 \renewcommand{\UrlFont}{\normalfont}
+
+% Изменяем шрифт для авторов в списке литературы на обычный
+\renewcommand{\mkgostheading}[1]{\normalfont{#1}}
