@@ -49,6 +49,13 @@
 \def\supervisorWithDegree#1{\gdef\@supervisorWithDegree{#1}}
 \def\@supervisorWithDegree{\@latex@warning@no@line{No \noexpand\supervisorWithDegree given}}
 
+% Поля для заполнения "обычных" отчётов
+\def\workType#1{\gdef\@workType{#1}}
+\def\@workType{\@latex@warning@no@line{No \noexpand\workType given}}
+\def\version#1{\gdef\@version{#1}}
+\def\@version{\@latex@warning@no@line{No \noexpand\version given}}
+\def\discipline#1{\gdef\@discipline{#1}}
+\def\@discipline{\@latex@warning@no@line{No \noexpand\discipline given}}
 
 \RequirePackage{fancyhdr}
 \fancypagestyle{year}{
@@ -213,6 +220,48 @@
     \vfill 
 
     \clearpage
+}
+\newcommand\reverseFillingBox[3][\maxlen]{
+		\noindent#2 \quad \makeUlineStack[#1]{#3}{(И. О. Фамилия)} \quad 
+		\makeUlineStack[3.5cm]{~}{(Подпись, дата)} \hfill\\
+}
+
+\newcommand\fillOrdinaryTitle{
+	
+	\vfill
+	
+	\noindent\begin{center}
+		\centering
+		{\bfseries\fontsize{20pt}{25pt}\selectfont \@workType} \\
+		{\fontsize{14pt}{25pt}\rmfamily\selectfont по дисциплине <<\@discipline>>} \\
+		\ifthenelse{\equal{\@version}{}}{~}{{\fontsize{14pt}{25pt}\rmfamily\selectfont Вариант \@version}}  \\
+	\end{center}
+	
+
+	\vfill
+
+{\fontsize{12pt}{15pt}\selectfont	
+	\reverseFillingBox{Студент \hspace{\widthof{Преподаватель}-\widthof{Студент}}\makeUlineStack[\widthof{\@group}]{\@group}{(Группа)}}{\@student}
+	\reverseFillingBox{Преподаватель\quad\hspace{\widthof{\@group}}}{\@supervisor}
+}
+	\bigskip
+	
+	\bigskip
+
+	\bigskip
+	
+	\vfill
+	{
+		\setlength{\tabcolsep}{0pt}
+		\renewcommand{\arraystretch}{1.5}
+		\noindent \begin{tabular}{ll}
+			\noindent Оценка: & \makeUlineStack[6cm]{~}{~} \\
+		\end{tabular}
+	}
+	
+	\vfill 
+	
+	\clearpage
 }
 
 \renewcommand\maketitle{
