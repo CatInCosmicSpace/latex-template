@@ -18,6 +18,14 @@
     применяют следующие сокращения и обозначения:}
     \def\fillTitle{\fillResearchTitle}
 }
+\DeclareOption{ordinary}{
+	\def\termsAndDefinitionsLine{В настоящем документе
+		применяют следующие термины с соответствующими определениями:}
+	\def\abbreviationsLine{В настоящем документе
+		применяют следующие сокращения и обозначения:}
+	\def\fillTitle{\fillOrdinaryTitle}
+}
+
 \ExecuteOptions{diploma}
 \ProcessOptions
 
