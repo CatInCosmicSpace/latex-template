@@ -2,6 +2,11 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{IU8-10-titlepage}[2024/09/09 v1.4 Титульный лист]
 
+\newcommand{\faculty}[2]{\gdef\@faculty{<<#1>> (#2)}}
+\newcommand{\department}[2]{\gdef\@department{<<#1>> (#2)}}
+\providecommand{\@faculty}{<<Информатика и системы управления>> (ИУ)}
+\providecommand{\@department}{<<Информационная безопасность>> (ИУ8)}
+
 % Поля для заполнения для ВКР
 \def\student#1{\gdef\@student{#1}}
 \def\@student{\@latex@warning@no@line{No \noexpand\student given}}
@@ -52,10 +57,19 @@
 % Поля для заполнения "обычных" отчётов
 \def\workType#1{\gdef\@workType{#1}}
 \def\@workType{\@latex@warning@no@line{No \noexpand\workType given}}
-\def\version#1{\gdef\@version{#1}}
-\def\@version{\@latex@warning@no@line{No \noexpand\version given}}
 \def\discipline#1{\gdef\@discipline{#1}}
 \def\@discipline{\@latex@warning@no@line{No \noexpand\discipline given}}
+\newcommand{\noscorefield}{\gdef\enablescore{}}
+\newcommand{\enablescore}{
+		\setlength{\tabcolsep}{0pt}
+		\renewcommand{\arraystretch}{1.5}
+		\noindent \begin{tabular}{ll}
+			\noindent Оценка: & \makeUlineStack[6cm]{~}{~} \\
+		\end{tabular}
+}
+\newcommand{\noversion}{\gdef\version{} \gdef\@version{}}
+\def\version#1{\gdef\@version{#1}}
+\def\@version{\@latex@warning@no@line{No \noexpand\version given}}
 
 \RequirePackage{fancyhdr}
 \fancypagestyle{year}{
@@ -105,8 +119,8 @@
     \end{center}
     \begin{flushleft}
         \fontsize{12pt}{14pt}\selectfont
-        ФАКУЛЬТЕТ \tabto{3cm} <<Информатика и системы управления>> (ИУ)\\
-        КАФЕДРА \tabto{3cm} <<Информационная безопасность>> (ИУ8)
+        ФАКУЛЬТЕТ \tabto{3cm} \@faculty \\
+        КАФЕДРА \tabto{3cm} \@department
     \end{flushleft}
 }
 
@@ -251,13 +265,7 @@
 	\bigskip
 	
 	\vfill
-	{
-		\setlength{\tabcolsep}{0pt}
-		\renewcommand{\arraystretch}{1.5}
-		\noindent \begin{tabular}{ll}
-			\noindent Оценка: & \makeUlineStack[6cm]{~}{~} \\
-		\end{tabular}
-	}
+	\enablescore
 	
 	\vfill 
 	
