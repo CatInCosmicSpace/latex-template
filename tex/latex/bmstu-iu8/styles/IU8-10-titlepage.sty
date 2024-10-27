@@ -57,8 +57,6 @@
 \def\@supervisorWithDegree{\@latex@warning@no@line{No \noexpand\supervisorWithDegree given}}
 
 % Поля для заполнения "обычных" отчётов
-\def\workType#1{\gdef\@workType{#1}}
-\def\@workType{\@latex@warning@no@line{No \noexpand\workType given}}
 \def\discipline#1{\gdef\@discipline{#1}}
 \def\@discipline{\@latex@warning@no@line{No \noexpand\discipline given}}
 \newcommand{\noscorefield}{\gdef\enablescore{}} % Выключить поле оценки
@@ -249,7 +247,7 @@
 	
 	\noindent\begin{center}
 		\centering
-		{\bfseries\fontsize{20pt}{25pt}\selectfont \@workType} \\
+		{\bfseries\fontsize{20pt}{25pt}\selectfont \@theme} \\
 		{\fontsize{12pt}{25pt}\rmfamily\selectfont по дисциплине <<\@discipline>>} \\
 		{\fontsize{12pt}{25pt}\rmfamily\selectfont \@version}  \\
 	\end{center}
