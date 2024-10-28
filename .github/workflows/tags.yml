@@ -43,7 +43,7 @@ jobs:
           zip -r bmstu-iu8.zip ./bmstu-iu8/
       
       - name: "Git artifact: CTAN zip"
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: CTAN zip
           path: |
