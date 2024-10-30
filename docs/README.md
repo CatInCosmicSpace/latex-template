@@ -150,6 +150,7 @@
 
 
 Также в `biblatex-gost` желательно использовать поле `media`, которое отвечает за плашки [Электронный ресурс], [Видеозапись] и другие. Его возможные значения:
+
 	* videorecording --- видеозапись,
 	* soundrecording --- звукозапись,
 	* graphic --- изоматериал,
@@ -212,6 +213,25 @@ $$
 3 + 4 = 2
 $$
 \end{example}
+```
+
+## Листинги
+Для оформления листингов используется пакет `listings`. При этом нашим пакетом добавлено окружение `codelisting`, которое в теории не должно провоцировать машинный нормоконтроль. Пример использования с кодом для SageMath:
+```latex
+\begin{codelisting}[language=Python]
+	upper_limit = 30 # генерируем~элементы~до~30
+	d = 1
+	n = 5
+	dist_arr = []
+	for i in range (0, upper_limit):
+		x = i
+		dist_arr.append(x^(n-1)*exp(-x/d)/(gamma(n)*d^n))
+	gammaD = GeneralDiscreteDistribution(dist_arr)
+	dataset_gamma = [gammaD.get_random_element() for _ in range(1000)]
+	dist_fun_points_gamma = [0] * (max(dataset_gamma) + 1)
+	for i in dataset_gamma:
+		dist_fun_points_gamma[i] += 1
+\end{codelisting}
 ```
 
 ****
