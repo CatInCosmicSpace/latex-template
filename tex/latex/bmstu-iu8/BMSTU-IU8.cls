@@ -18,6 +18,13 @@
     применяют следующие сокращения и обозначения:}
     \def\fillTitle{\fillResearchTitle}
 }
+\DeclareOption{practice}{
+	\def\termsAndDefinitionsLine{В настоящем отчёте о практике
+		применяют следующие термины с соответствующими определениями:}
+	\def\abbreviationsLine{В настоящем отчёте о практике
+		применяют следующие сокращения и обозначения:}
+	\def\fillTitle{\fillOrdinaryTitle}
+}
 \DeclareOption{ordinary}{
 	\def\termsAndDefinitionsLine{В настоящем документе
 		применяют следующие термины с соответствующими определениями:}

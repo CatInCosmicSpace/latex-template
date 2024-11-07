@@ -9,7 +9,8 @@
 \providecommand{\@faculty}{<<Информатика и системы управления>> (ИУ)}
 \providecommand{\@department}{<<Информационная безопасность>> (ИУ8)}
 
-% Поля для заполнения для ВКР
+% Поля для заполнения для ВКР,
+% часть полей используется и в других титульных
 \def\student#1{\gdef\@student{#1}}
 \def\@student{\@latex@warning@no@line{No \noexpand\student given}}
 
@@ -55,6 +56,12 @@
 
 \def\supervisorWithDegree#1{\gdef\@supervisorWithDegree{#1}}
 \def\@supervisorWithDegree{\@latex@warning@no@line{No \noexpand\supervisorWithDegree given}}
+
+% Поля для заполнения титульников по летней практике
+\def\departmentSupervisor#1{\gdef\@departmentSupervisor{#1}}
+\def\@departmentSupervisor{\@latex@warning@no@line{No \noexpand\departmentSupervisor given}}
+\def\prac#1{\gdef\@departmentSupervisor{#1}}
+\def\@departmentSupervisor{\@latex@warning@no@line{No \noexpand\departmentSupervisor given}}
 
 % Поля для заполнения "обычных" отчётов
 \def\discipline#1{\gdef\@discipline{#1}}
@@ -241,6 +248,40 @@
 		\makeUlineStack[3.5cm]{~}{(Подпись, дата)} \hfill\\
 }
 
+
+\newcommand\fillPracticeTitle{
+	
+	\vfill
+	
+	\noindent\begin{center}
+		\centering
+		{\bfseries\fontsize{20pt}{25pt}\selectfont Отчёт по \@practiceVariant практике} \\
+	\end{center}
+	
+
+	\vfill
+
+{\fontsize{12pt}{15pt}\selectfont	
+	Студент: группа \@group, л.д. \@profile \@studentFullName \makeUlineStack[3.5cm]{~}{(Подпись, дата)}
+	
+	Руководитель от предприятия: \@supervisor \makeUlineStack[3.5cm]{~}{(Подпись, дата)}
+	
+	Руководитель от кафедры: \@departmentSupervisor \makeUlineStack[3.5cm]{~}{(Подпись, дата)}
+}
+	\bigskip
+	
+	\bigskip
+
+	\bigskip
+	
+	\vfill
+	\enablescore
+	
+	\vfill 
+	
+	\clearpage
+}
+
 \newcommand\fillOrdinaryTitle{
 	
 	\vfill
@@ -256,7 +297,7 @@
 	\vfill
 
 {\fontsize{12pt}{15pt}\selectfont	
-	\reverseFillingBox{Студент \hspace{\widthof{Преподаватель}-\widthof{Студент}}\makeUlineStack[\widthof{\@group}]{\@group}{(Группа)}}{\@student}
+	\reverseFillingBox{Студент \hspace{\widthof{Преподаватель}-\widthof{Студент}}\makeUlineStack[\widthof{\@group}]{\@group}{(Группа)}}{\@student} \\
 	\reverseFillingBox{Преподаватель\quad\hspace{\widthof{\@group}}}{\@supervisor}
 }
 	\bigskip
