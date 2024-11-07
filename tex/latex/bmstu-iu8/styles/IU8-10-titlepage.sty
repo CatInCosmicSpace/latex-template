@@ -84,9 +84,12 @@
 \newcommand{\version}[1]{\gdef\@version{Вариант #1}} % Если указан вариант, то определяем команду
 \providecommand{\@version}{~} % Если не указан вариант, то заменяем на пустоту
 
+\newcommand{\noitalicfooter}{\gdef\@italicfooter{}}
+\providecommand{\@italicfooter}{\itshape}
+
 \RequirePackage{fancyhdr}
 \fancypagestyle{year}{
-  \fancyfoot[C]{\itshape Москва, \the\year~г.}
+  \fancyfoot[C]{\@italicfooter Москва, \the\year~г.}
   \renewcommand{\headrulewidth}{0pt}
   \fancyhead{}
 }
@@ -278,12 +281,12 @@
 	\begin{tabular}{p{0.6\linewidth}c}
 	
 		Студент: группа \@group, л.д. \@profile &\\
-		\@student & \makeUlineStack{~}{(Подпись, дата)} \\
+		\@student & \makeUlineStack[0.3\linewidth]{~}{(Подпись, дата)} \\
 		
 		Руководитель от предприятия:&\\
-		\@supervisor &  \makeUlineStack{~}{(Подпись, дата)} \\		
+		\@supervisor &  \makeUlineStack[0.3\linewidth]{~}{(Подпись, дата)} \\		
 		Руководитель от кафедры:&\\
-		\@departmentSupervisor &  \makeUlineStack{~}{(Подпись, дата)} \\
+		\@departmentSupervisor &  \makeUlineStack[0.3\linewidth]{~}{(Подпись, дата)} \\
 	\end{tabular}
 	}
 
