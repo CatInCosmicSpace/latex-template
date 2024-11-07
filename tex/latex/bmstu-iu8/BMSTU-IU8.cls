@@ -23,7 +23,7 @@
 		применяют следующие термины с соответствующими определениями:}
 	\def\abbreviationsLine{В настоящем отчёте о практике
 		применяют следующие сокращения и обозначения:}
-	\def\fillTitle{\fillOrdinaryTitle}
+	\def\fillTitle{\fillPracticeTitle}
 }
 \DeclareOption{ordinary}{
 	\def\termsAndDefinitionsLine{В настоящем документе

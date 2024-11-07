@@ -58,9 +58,16 @@
 \def\@supervisorWithDegree{\@latex@warning@no@line{No \noexpand\supervisorWithDegree given}}
 
 % Поля для заполнения титульников по летней практике
+\def\practiceKind#1{\gdef\@practiceKind{#1}}
+\def\@practiceKind{\@latex@warning@no@line{No \noexpand\practiceKind given}}
+
+\def\practiceBase#1{\gdef\@practiceBase{#1}}
+\def\@practiceBase{\@latex@warning@no@line{No \noexpand\practiceBase given}}
+
+\def\practiceType#1{\gdef\@practiceType{#1}}
+\def\@practiceType{\@latex@warning@no@line{No \noexpand\practiceType given}}
+ 
 \def\departmentSupervisor#1{\gdef\@departmentSupervisor{#1}}
-\def\@departmentSupervisor{\@latex@warning@no@line{No \noexpand\departmentSupervisor given}}
-\def\prac#1{\gdef\@departmentSupervisor{#1}}
 \def\@departmentSupervisor{\@latex@warning@no@line{No \noexpand\departmentSupervisor given}}
 
 % Поля для заполнения "обычных" отчётов
@@ -255,26 +262,33 @@
 	
 	\noindent\begin{center}
 		\centering
-		{\bfseries\fontsize{20pt}{25pt}\selectfont Отчёт по \@practiceVariant практике} \\
+		{\bfseries\fontsize{20pt}{25pt}\selectfont ОТЧЁТ~ПО~\@practiceKind~ПРАКТИКЕ}
 	\end{center}
 	
+	\bigskip
+
+	{\fontsize{12pt}{15pt}\selectfont \noindent
+		Тип пратики: \@practiceType \\
+		Название предприятия: \@practiceBase \\
+	}
 
 	\vfill
 
-{\fontsize{12pt}{15pt}\selectfont	
-	Студент: группа \@group, л.д. \@profile \@studentFullName \makeUlineStack[3.5cm]{~}{(Подпись, дата)}
+	{\fontsize{12pt}{15pt}\selectfont \noindent
+	\begin{tabular}{p{0.6\linewidth}c}
 	
-	Руководитель от предприятия: \@supervisor \makeUlineStack[3.5cm]{~}{(Подпись, дата)}
-	
-	Руководитель от кафедры: \@departmentSupervisor \makeUlineStack[3.5cm]{~}{(Подпись, дата)}
-}
-	\bigskip
-	
-	\bigskip
+		Студент: группа \@group, л.д. \@profile &\\
+		\@student & \makeUlineStack{~}{(Подпись, дата)} \\
+		
+		Руководитель от предприятия:&\\
+		\@supervisor &  \makeUlineStack{~}{(Подпись, дата)} \\		
+		Руководитель от кафедры:&\\
+		\@departmentSupervisor &  \makeUlineStack{~}{(Подпись, дата)} \\
+	\end{tabular}
+	}
 
-	\bigskip
-	
 	\vfill
+	
 	\enablescore
 	
 	\vfill 
@@ -325,6 +339,7 @@
         \CompLen{\@economicsConsultant}
         \CompLen{\@lawsConsultant}
         \CompLen{\@normController}
+        \CompLen{\@departmentSupervisor}
         
         \thispagestyle{year}
         \makeBMSTUHeader
