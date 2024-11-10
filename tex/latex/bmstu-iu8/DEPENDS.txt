@@ -36,3 +36,4 @@ ltablex # Here (and below) go some dependencies of dependencies
 biblatex
 ifoddpage
 relsize
+ifthen

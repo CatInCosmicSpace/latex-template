@@ -2,9 +2,13 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{IU8-10-titlepage}[2024/10/28 v1.5 Титульный лист]
 
+
+\newcommand{\@strjustify}[1]{\StrCut{#1}{\\}\csA\csB \StrSubstitute{\csA}{\space}{\hfill\space}\csB}
+
 % Команды для задания факультета и кафедры
 \newcommand{\faculty}[2]{\gdef\@faculty{<<#1>> (#2)}}
 \newcommand{\department}[2]{\gdef\@department{<<#1>> (#2)}}
+
 % Дефолтные значения --- забываем, кому это было надо в первую очередь :)
 \providecommand{\@faculty}{<<Информатика и системы управления>> (ИУ)}
 \providecommand{\@department}{<<Информационная безопасность>> (ИУ8)}
@@ -133,11 +137,12 @@
         \noindent\makebox[\linewidth]{\rule{\textwidth}{2pt}} 
         \makebox[\linewidth]{\rule{\textwidth}{1pt}}
     \end{center}
-    \begin{flushleft}
-        \fontsize{12pt}{14pt}\selectfont
-        ФАКУЛЬТЕТ \tabto{3cm} \@faculty \\
-        КАФЕДРА \tabto{3cm} \@department
-    \end{flushleft}
+    {\fontsize{12pt}{14pt} \selectfont \noindent
+    \begin{tabular}{lp{0.7\linewidth}}
+        ФАКУЛЬТЕТ \tabto{3cm} & \@faculty \\
+        КАФЕДРА \tabto{3cm} & \@department
+    \end{tabular}
+    }
 }
 
 \newcommand\fillingBox[3][\maxlen]{
