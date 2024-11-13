@@ -3,7 +3,7 @@
 \ProvidesPackage{IU8-10-titlepage}[2024/10/28 v1.5 Титульный лист]
 
 
-\newcommand{\@strjustify}[1]{\StrCut{#1}{\\}\csA\csB \StrSubstitute{\csA}{\space}{\hfill\space}\csB}
+\newcommand{\strjustify}[1]{\StrCut{#1}{\\}\csA\csB \StrSubstitute{\csA}{\space}{\hfill\space}\csB}
 
 % Команды для задания факультета и кафедры
 \newcommand{\faculty}[2]{\gdef\@faculty{<<#1>> (#2)}}
