@@ -8,10 +8,11 @@
     \begin{center}
         \bfseries #1
     \end{center}
-    \addcontentsline{toc}{section}{ПРИЛОЖЕНИЕ~\Asbuk{apps}~{#1}}
+    \addcontentsline{toc}{structure}{ПРИЛОЖЕНИЕ~\Asbuk{apps}~{#1}}
 }
 
 \renewcommand{\appendix}{
+    \addtocontents{toc}{\protect\setcounter{tocdepth}{0}}
     \renewcommand\section{\clearpage\@startsection{section}{1}{0pt}{1em}{1em}{\bfseries\centering ПРИЛОЖЕНИЕ~}}
     \setcounter{section}{0}
     \setcounter{figure}{0}    
