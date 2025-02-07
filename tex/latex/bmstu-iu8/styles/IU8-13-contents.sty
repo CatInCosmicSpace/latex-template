@@ -12,19 +12,29 @@
     \@starttoc{toc}
 }
 
+
+% Нулевой отступ в содержании (TestVKR)
+\newcommand{\zerotocindent}{\gdef\@tocindentsec{0mm} \gdef\@tocindentsubsec{0mm} \gdef\@tocindentsubsubsec{0mm}}
+
+% Дефолтные значения
+\providecommand{\@tocindentsec}{5mm}
+\providecommand{\@tocindentsubsec}{10mm}
+\providecommand{\@tocindentsubsubsec}{15mm}
+
+
 \renewcommand*\l@section{\@dottedtocline{0}{0mm}{2em}}
 \renewcommand*\l@structure{\@dottedtocline{0}{0mm}{0em}}
 % ГОСТ 7.32-2017. Пункт 5.4.1:
 % Обозначения подразделов приводят после абзацного отступа, 
 % равного двум знакам, относительно обозначения разделов.
-\renewcommand*\l@section{\@dottedtocline{1}{5mm}{3em}}
-\renewcommand*\l@subsection{\@dottedtocline{1}{10mm}{3em}}
+\renewcommand*\l@section{\@dottedtocline{1}{\@tocindentsec}{3em}}
+\renewcommand*\l@subsection{\@dottedtocline{1}{\@tocindentsubsec}{3em}}
 % ГОСТ 7.32-2017. Пункт 5.4.1:
 % Обозначения пунктов приводят после абзацного отступа, 
 % равного четырем знакам, относительно обозначения разделов.
-\renewcommand*\l@subsubsection{\@dottedtocline{2}{15mm}{4em}}
+\renewcommand*\l@subsubsection{\@dottedtocline{2}{\@tocindentsubsubsec}{4em}}
 % Остальное - индуктивно
-\renewcommand*\l@paragraph{\@dottedtocline{3}{15mm}{5em}}
+\renewcommand*\l@paragraph{\@dottedtocline{3}{\@tocindentsubsubsec}{5em}}
 
 
 \setcounter{secnumdepth}{5} % Глубина заголовков - до пятого уровня
