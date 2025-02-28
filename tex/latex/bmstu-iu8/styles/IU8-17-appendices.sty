@@ -1,6 +1,6 @@
 % Author: CatInCosmicSpace
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{IU8-17-appendices}[2024/10/28 v1.5 Приложения]
+\ProvidesPackage{IU8-17-appendices}[2025/02/09 v1.6 Приложения]
 
 \newcommand{\appendixsection}[1]{
     \stepcounter{apps}
@@ -8,10 +8,11 @@
     \begin{center}
         \bfseries #1
     \end{center}
-    \addcontentsline{toc}{section}{ПРИЛОЖЕНИЕ~\Asbuk{apps}~{#1}}
+    \addcontentsline{toc}{structure}{ПРИЛОЖЕНИЕ~\Asbuk{apps}~{#1}}
 }
 
 \renewcommand{\appendix}{
+    \addtocontents{toc}{\protect\setcounter{tocdepth}{0}}
     \renewcommand\section{\clearpage\@startsection{section}{1}{0pt}{1em}{1em}{\bfseries\centering ПРИЛОЖЕНИЕ~}}
     \setcounter{section}{0}
     \setcounter{figure}{0}    
