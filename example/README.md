@@ -1,6 +1,6 @@
 # IU8 package
 
-Version: v1.6 (released 2025/02/09).
+Version: v1.7 (released 2025/03/15).
 
 This package consist of class file and style files for writing 
 reports at the IU8 department of IU faculty of BMSTU 
