@@ -57,8 +57,9 @@
 \def\@supervisorWithDegree{\@latex@warning@no@line{No \noexpand\supervisorWithDegree given}}
 
 % Поля для заполнения "обычных" отчётов
-\def\discipline#1{\gdef\@discipline{#1}}
-\def\@discipline{\@latex@warning@no@line{No \noexpand\discipline given}}
+\def\discipline#1{\gdef\@discipline{по дисциплине <<#1>> \\}}
+\providecommand{\@discipline}{~}
+
 \newcommand{\noscorefield}{\gdef\enablescore{}} % Выключить поле оценки
 \providecommand{\enablescore}{ % Поле оценки включено по умолчанию
 		\setlength{\tabcolsep}{0pt}
@@ -248,7 +249,7 @@
 	\noindent\begin{center}
 		\centering
 		{\bfseries\fontsize{20pt}{25pt}\selectfont \@theme} \\
-		{\fontsize{12pt}{25pt}\rmfamily\selectfont по дисциплине <<\@discipline>>} \\
+		{\fontsize{12pt}{25pt}\rmfamily\selectfont \@discipline}
 		{\fontsize{12pt}{25pt}\rmfamily\selectfont \@version}  \\
 	\end{center}
 	
