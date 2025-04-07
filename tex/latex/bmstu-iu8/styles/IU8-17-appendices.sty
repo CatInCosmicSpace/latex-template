@@ -3,7 +3,7 @@
 \ProvidesPackage{IU8-17-appendices}[2025/03/15 v1.7 Приложения]
 
 \newcommand{\appendixsection}[1]{
-    \stepcounter{apps}
+    \refstepcounter{apps}
     \section*{\Asbuk{apps}}
     \begin{center}
         \bfseries #1
@@ -23,4 +23,5 @@
     \renewcommand\thetable{\Asbuk{apps}.\arabic{table}} 
     \renewcommand\theequation{\Asbuk{apps}.\arabic{equation}} 
     \renewcommand\thelstlisting{\Asbuk{apps}.\arabic{lstlisting}} 
+    \renewcommand{\theapps}{\Asbuk{apps}}
 }
