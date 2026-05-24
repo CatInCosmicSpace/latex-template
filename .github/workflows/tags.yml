@@ -12,7 +12,7 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v6
 
       - name: 'Get tag'
         run: |
@@ -43,7 +43,7 @@ jobs:
           zip -r bmstu-iu8.zip ./bmstu-iu8/
       
       - name: "Git artifact: CTAN zip"
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: CTAN zip
           path: |
