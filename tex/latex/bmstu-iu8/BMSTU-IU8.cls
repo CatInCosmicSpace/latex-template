@@ -8,6 +8,7 @@
     \def\termsAndDefinitionsLine{В настоящей ВКР применяют следующие термины с соответствующими определениями:}
     \def\abbreviationsLine{В настоящей ВКР применяют следующие сокращения и обозначения:}
     \def\fillTitle{\fillDiplomaTitle}
+    \def\@reportDocType{РПЗ}
 }
 \DeclareOption{research}{
     \def\termsAndDefinitionsLine{В настоящем отчете о НИР

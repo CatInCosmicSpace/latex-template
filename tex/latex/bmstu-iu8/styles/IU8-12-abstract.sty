@@ -16,10 +16,18 @@
 
 \RequirePackage{lastpage}
 
+\providecommand{\@reportDocType}{Отчёт} % По умолчанию "Отчёт", но может
+										% быть переопределено через опции пакета
+										% Например, для РПЗ ВКР будет "РПЗ"
+
+% Команда для задания своего типа документа (XXX) в предложении в начале
+% реферата: "XXX содержит ?? стр., ?? рис., ..."
+\newcommand{\overrideAbstractDocType}[1]{\gdef\@reportDocType{#1}}
+
 \renewcommand{\abstract}{
     \structure{РЕФЕРАТ}
     
-    Отчёт содержит \pageref{LastPage} стр.\ifnum
+    \@reportDocType~содержит \pageref{LastPage} стр.\ifnum
     \TotalValue{totalfigures}>0, \TotalValue{totalfigures} рис.\fi\ifnum
     \TotalValue{totaltables}>0, \TotalValue{totaltables} табл.\fi\ifnum
     \TotalValue{totalcites}>0, \TotalValue{totalcites} источн.\fi\ifnum

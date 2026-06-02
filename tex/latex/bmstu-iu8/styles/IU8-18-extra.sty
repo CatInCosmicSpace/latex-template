@@ -22,6 +22,69 @@
   filecolor=black,
 } % Кликабельные ссылки в pdf
 
+
+%% Дополнения из ГОСТ 2.105-2019, которые могут потребоваться при НК ВКР
+% Решение сделано на основе изысканий @morsiiik
+%
+% Ниже описанное исходит из равенства
+% 1em == кегль шрифта == 1 интервал
+%
+% 6.6.3 Расстояние между заголовком раздела (подраздела) и предыдущим или
+% последующим текстом, а также между заголовками раздела и подраздела
+% должно быть равно не менее чем двум высотам шрифта, которым набран
+% основной текст документа.
+%
+%Примечание - При выполнении машинописным способом интервал
+% рекомендуется использовать равный 2 или 3 интервалам, при выполнении
+% рукописным способом - не менее 15 мм.
+%%% прим: А в старой версии госта ...-95 было 3 или 4 интервала,
+%%% т.е. стоит остановиться на 3 интервалах
+
+% 6.6.4 Расстояние между строками заголовков подразделов и пунктов 
+% принимают таким же, как в тексте.
+
+\newlength{\eskdgostlength}
+\setlength{\eskdgostlength}{3em}
+\newcommand{\useGOSTstyleOTKTD}[1][95]{
+    \ifthenelse{\equal{#1}{95}}{ % then
+        \setlength{\eskdgostlength}{3em}
+    }{ % else
+    \ifthenelse{\equal{#1}{2019}}{ % then
+        \setlength{\eskdgostlength}{2em}
+    }{ % else
+    \PackageError{IU8-18-extra}{Unknown GOST 2.105 revision #1 in macro \noexpand\useGOSTstyleOTKTD.}{Use 95 or 2019 revisisons.}
+    }}
+    \titlespacing*{\structure}{0pt}{0pt}{\eskdgostlength}
+    \titlespacing*{\section}{0pt}{0pt}{\eskdgostlength}
+    \titlespacing*{\subsection}{0pt}{\eskdgostlength}{\eskdgostlength}
+    \titlespacing*{\subsubsection}{0pt}{\eskdgostlength}{\eskdgostlength}
+    \titlespacing*{\paragraph}{0pt}{\eskdgostlength}{\eskdgostlength}
+    \titlespacing*{\subparagraph}{0pt}{\eskdgostlength}{\eskdgostlength}
+}
+% Примеры использования     Результат
+% \useGOSTstyleOTKTD        По умолч., 3 интервала
+% \useGOSTstyleOTKTD[95]    Отступ по 95, т.е. 3 интервала
+% \useGOSTstyleOTKTD[2019]  Отступ по 2019, т.е. 2 интервала
+% \useGOSTstyleOTKTD[9000]  Сообщение об ошибке
+
+% Опционально убираем 1em следующией командой
+\newcommand{\titleToTitleSpacing}{\vspace{-1em}}
+
+% В гостах не обнаружено, но требуют увеличить расстояние между формулой
+% и текстом (до и после формулы)
+\newcommand{\enlargeFormulaeSpacing}{
+    % Формулы: пустая строка до и после.
+    % \AtBeginDocument нужен, потому что setspace (через \onehalfspacing)
+    % переопределяет displayskip при выборе шрифта, перезаписывая значения,
+    % поставленные в преамбуле.
+    \AtBeginDocument{%
+        \setlength{\abovedisplayskip}{1.5em}%
+        \setlength{\belowdisplayskip}{1.5em}%
+        \setlength{\abovedisplayshortskip}{1.5em}%
+        \setlength{\belowdisplayshortskip}{1.5em}%
+    }
+}
+
 \hbadness=10000
 
 \setlist[enumerate]{
